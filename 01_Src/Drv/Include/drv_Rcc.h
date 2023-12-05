@@ -71,7 +71,7 @@
 #define AHB_FREQ_HSE_62K   62500
 #define AHB_FREQ_HSE_31K   31250
 
-// Use the below options when using HSI as a clock source for setting APB1 bus clock frequency
+/*Use the below options when using HSI as a clock source for setting APB1 bus clock frequency*/
 #define APB1_FREQ_HSI_16M   16000000
 #define APB1_FREQ_HSI_8M    8000000
 #define APB1_FREQ_HSI_4M    4000000
@@ -82,7 +82,7 @@
 //#define APB1_FREQ_HSI_62K   62500
 //#define APB1_FREQ_HSI_31K   31250
 
-// Use the below options when using HSE as a clock source for setting APB1 bus clock frequency
+/*Use the below options when using HSE as a clock source for setting APB1 bus clock frequency*/
 #define APB1_FREQ_HSE_8M    8000000
 #define APB1_FREQ_HSE_4M    4000000
 #define APB1_FREQ_HSE_2M    2000000
@@ -92,7 +92,7 @@
 //#define APB1_FREQ_HSE_62K   62500
 //#define APB1_FREQ_HSE_31K   31250
 
-// Use the below options when using HSI as a clock source for setting APB2 bus clock frequency
+/*Use the below options when using HSI as a clock source for setting APB2 bus clock frequency*/
 #define APB2_FREQ_HSI_16M   16000000
 #define APB2_FREQ_HSI_8M    8000000
 #define APB2_FREQ_HSI_4M    4000000
@@ -103,7 +103,7 @@
 //#define APB2_FREQ_HSI_62K   62500
 //#define APB2_FREQ_HSI_31K   31250
 
-// Use the below options when using HSE as a clock source for setting APB2 bus clock frequency
+/*Use the below options when using HSE as a clock source for setting APB2 bus clock frequency*/
 #define APB2_FREQ_HSE_8M    8000000
 #define APB2_FREQ_HSE_4M    4000000
 #define APB2_FREQ_HSE_2M    2000000
