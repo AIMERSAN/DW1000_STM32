@@ -1,10 +1,10 @@
-.\objects\app_main.o: ..\01_Src\App\Source\App_main.c
-.\objects\app_main.o: B:\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\app_main.o: B:\MDK5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\app_main.o: B:\MDK5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\app_main.o: ..\01_Src\App\Source\app_main.c
+.\objects\app_main.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdio.h
+.\objects\app_main.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdlib.h
+.\objects\app_main.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\string.h
 .\objects\app_main.o: ..\02_Lib\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\objects\app_main.o: ..\02_Lib\CMSIS\CM3\CoreSupport\core_cm3.h
-.\objects\app_main.o: B:\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\app_main.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdint.h
 .\objects\app_main.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_version.h
 .\objects\app_main.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_compiler.h
 .\objects\app_main.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_armcc.h

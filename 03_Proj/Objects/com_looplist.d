@@ -2,7 +2,7 @@
 .\objects\com_looplist.o: ..\01_Src\Com\Include\com_LoopList.h
 .\objects\com_looplist.o: ..\02_Lib\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\objects\com_looplist.o: ..\02_Lib\CMSIS\CM3\CoreSupport\core_cm3.h
-.\objects\com_looplist.o: B:\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\com_looplist.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdint.h
 .\objects\com_looplist.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_version.h
 .\objects\com_looplist.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_compiler.h
 .\objects\com_looplist.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_armcc.h
@@ -32,5 +32,5 @@
 .\objects\com_looplist.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\com_looplist.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\com_looplist.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\objects\com_looplist.o: B:\MDK5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\com_looplist.o: B:\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\com_looplist.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\string.h
+.\objects\com_looplist.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdio.h

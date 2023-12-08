@@ -2,7 +2,7 @@
 .\objects\drv_mcu.o: ..\01_Src\Drv\Include\drv_Mcu.h
 .\objects\drv_mcu.o: ..\02_Lib\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\objects\drv_mcu.o: ..\02_Lib\CMSIS\CM3\CoreSupport\core_cm3.h
-.\objects\drv_mcu.o: B:\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\drv_mcu.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdint.h
 .\objects\drv_mcu.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_version.h
 .\objects\drv_mcu.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_compiler.h
 .\objects\drv_mcu.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_armcc.h
@@ -32,5 +32,5 @@
 .\objects\drv_mcu.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\drv_mcu.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\drv_mcu.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\misc.h
-.\objects\drv_mcu.o: B:\MDK5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\drv_mcu.o: B:\MDK5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\drv_mcu.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdlib.h
+.\objects\drv_mcu.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdio.h

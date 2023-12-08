@@ -2,7 +2,7 @@
 .\objects\stm32f10x_dac.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_dac.h
 .\objects\stm32f10x_dac.o: ..\02_Lib\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\objects\stm32f10x_dac.o: ..\02_Lib\CMSIS\CM3\CoreSupport\core_cm3.h
-.\objects\stm32f10x_dac.o: B:\MDK5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32f10x_dac.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdint.h
 .\objects\stm32f10x_dac.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_version.h
 .\objects\stm32f10x_dac.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_compiler.h
 .\objects\stm32f10x_dac.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_armcc.h
