@@ -58,36 +58,6 @@
         "folders": []
       },
       {
-        "name": "Drv",
-        "files": [
-          {
-            "path": "../01_Src/Drv/Source/drv_Mcu.c"
-          },
-          {
-            "path": "../01_Src/Drv/Source/drv_Rcc.c"
-          },
-          {
-            "path": "../01_Src/Drv/Source/drv_Gpio.c"
-          },
-          {
-            "path": "../01_Src/Drv/Source/drv_Uart.c"
-          },
-          {
-            "path": "../01_Src/Drv/Source/drv_Timer.c"
-          },
-          {
-            "path": "../01_Src/Drv/Source/drv_Spi.c"
-          },
-          {
-            "path": "../01_Src/Drv/Source/drv_I2c.c"
-          },
-          {
-            "path": "../01_Src/Drv/Source/drv_Iwdg.c"
-          }
-        ],
-        "folders": []
-      },
-      {
         "name": "DecaDriver",
         "files": [],
         "folders": [
@@ -116,6 +86,36 @@
             "folders": []
           }
         ]
+      },
+      {
+        "name": "Drv",
+        "files": [
+          {
+            "path": "../01_Src/Drv/Source/drv_Gpio.c"
+          },
+          {
+            "path": "../01_Src/Drv/Source/drv_I2c.c"
+          },
+          {
+            "path": "../01_Src/Drv/Source/drv_Iwdg.c"
+          },
+          {
+            "path": "../01_Src/Drv/Source/drv_Mcu.c"
+          },
+          {
+            "path": "../01_Src/Drv/Source/drv_Rcc.c"
+          },
+          {
+            "path": "../01_Src/Drv/Source/drv_Spi.c"
+          },
+          {
+            "path": "../01_Src/Drv/Source/drv_Timer.c"
+          },
+          {
+            "path": "../01_Src/Drv/Source/drv_Uart.c"
+          }
+        ],
+        "folders": []
       },
       {
         "name": "ST",
@@ -349,8 +349,6 @@
       "uploadConfigMap": {},
       "custom_dep": {
         "name": "default",
-        "sourceDirList": [],
-        "libList": [],
         "incList": [
           "../01_Src/App/Include",
           "../01_Src/BSP/Include",
@@ -365,6 +363,8 @@
           "../02_Lib/STM32F10x_StdPeriph_Driver/inc",
           "RTE/_BaseStation"
         ],
+        "libList": [],
+        "sourceDirList": [],
         "defineList": []
       }
     }
