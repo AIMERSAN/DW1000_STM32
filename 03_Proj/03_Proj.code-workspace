@@ -9,6 +9,14 @@
             "activityBar.background": "#591411",
             "titleBar.activeBackground": "#7C1C17",
             "titleBar.activeForeground": "#FEFBFB"
+        },
+        "files.associations": {
+            "*.C": "c",
+            "stm32f10x_gpio.h": "c",
+            "drv_gpio.h": "c",
+            "drv_mcu.h": "c",
+            "bsp_led.h": "c",
+            "bsp_bee.h": "c"
         }
     },
     "extensions": {}

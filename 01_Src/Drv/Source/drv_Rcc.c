@@ -14,7 +14,7 @@
 
 void RccInit()
 {
-    setAHB1lock();
+    setAHB1lock(pRCCHanle);
     
     
 

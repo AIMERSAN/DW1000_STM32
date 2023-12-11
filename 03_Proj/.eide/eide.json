@@ -125,13 +125,19 @@
             "name": "Lib",
             "files": [
               {
-                "path": "../02_Lib/STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.c"
-              },
-              {
                 "path": "../02_Lib/CMSIS/CM3/CoreSupport/core_cm3.c"
               },
               {
+                "path": "../02_Lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/arm/startup_stm32f10x_hd.s"
+              },
+              {
+                "path": "../02_Lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c"
+              },
+              {
                 "path": "../02_Lib/STM32F10x_StdPeriph_Driver/src/misc.c"
+              },
+              {
+                "path": "../02_Lib/STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.c"
               },
               {
                 "path": "../02_Lib/STM32F10x_StdPeriph_Driver/src/stm32f10x_bkp.c"
@@ -195,12 +201,6 @@
               },
               {
                 "path": "../02_Lib/STM32F10x_StdPeriph_Driver/src/stm32f10x_wwdg.c"
-              },
-              {
-                "path": "../02_Lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c"
-              },
-              {
-                "path": "../02_Lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/arm/startup_stm32f10x_hd.s"
               }
             ],
             "folders": []
@@ -218,7 +218,8 @@
   "targets": {
     "BaseStation": {
       "excludeList": [
-        "<virtual_root>/Drv/drv_Rcc.c"
+        "<virtual_root>/Drv/drv_Rcc.c",
+        "<virtual_root>/Bsp/bsp_W25QXX.c"
       ],
       "toolchain": "AC5",
       "compileConfig": {
