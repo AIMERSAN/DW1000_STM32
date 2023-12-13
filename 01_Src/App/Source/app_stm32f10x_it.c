@@ -23,6 +23,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
 
+/* Tick timer count */
+volatile unsigned long time32Incr;
+
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
   */

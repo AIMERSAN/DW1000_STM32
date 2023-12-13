@@ -12,28 +12,26 @@
 
 #include "bsp_Bee.h"
 
-gpioHandle_t gpioHandle;
-
-void BeeInit()
+void BeeInitConfig(void)
 {
-    gpioHandle.pGPIOx = A1_GPIO_PORT | A2_GPIO_PORT;
-    gpioHandle.gpioPinConfig.gpioPin = A1_GPIO_PIN | A2_GPIO_PIN;
-    gpioHandle.gpioPinConfig.gpioPortMode = GPIO_Mode_Out_PP;
-    gpioHandle.gpioPinConfig.gpioPortSpeed = GPIO_Speed_50MHz;
+    gpioHandle_t beeGpioHandle;
     
-    GpioPeripheralClockConfig(gpioHandle.pGPIOx, ENABLE);    
-    GpioConfigInit(gpioHandle.pGPIOx, &gpioHandle);
+    beeGpioHandle.pGPIOx = A1_GPIO_PORT;
+    beeGpioHandle.gpioPinConfig.gpioPin = A1_GPIO_PIN | A2_GPIO_PIN;
+    beeGpioHandle.gpioPinConfig.gpioPortMode = GPIO_Mode_Out_PP;
+    beeGpioHandle.gpioPinConfig.gpioPortSpeed = GPIO_Speed_50MHz;
+
+    GPIO_DeInit(beeGpioHandle.pGPIOx);
+    GpioPeripheralClockConfig(beeGpioHandle.pGPIOx, ENABLE);
+    GpioConfigInit(beeGpioHandle.pGPIOx, &beeGpioHandle);
 }
 
-void BeeClose()
+void BeeClose(void)
 {
-    
-
+    GpioWriteToOutputPin(A1_GPIO_PORT, A1_GPIO_PIN, RESET);
 }
 
-void BeeOpen()
+void BeeOpen(void)
 {
-
-
+    GpioWriteToOutputPin(A1_GPIO_PORT, A1_GPIO_PIN, SET);
 }
-

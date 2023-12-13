@@ -11,6 +11,7 @@
   */
 
 #include "drv_Spi.h"
+#include "drv_gpio.h"
 
 void SpiPeripheralClockConfig(SPI_TypeDef *pSPIx, FunctionalState clockState)
 {
@@ -28,21 +29,21 @@ void SpiPeripheralClockConfig(SPI_TypeDef *pSPIx, FunctionalState clockState)
     }
 }
 
-void SpiGpioInit()
+void SpiGpioInit(GPIO_TypeDef* spiDevicePort,uint16_t spiDevicePin, 
+                 uint16_t spiDevicePortMode, uint16_t spiDevicePortSpeed)
 {
-    GPIO_InitTypeDef gpioInitStructure;
+    gpioHandle_t spiGpioConfig;
+
+    spiGpioConfig.pGPIOx = spiDevicePort;
+    spiGpioConfig.gpioPinConfig.gpioPortMode = spiDevicePortMode;
+    spiGpioConfig.gpioPinConfig.gpioPortMode  = spiDevicePin;
+    spiGpioConfig.gpioPinConfig.gpioPortSpeed = spiDevicePortSpeed;
     
-    
-    gpioInitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-    gpioInitStructure.GPIO_Pin  = GPIO_Pin_1;
-    gpioInitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    
-    GPIO_Init(GPIOA, &gpioInitStructure);
+    GpioConfigInit(spiDevicePort, &spiGpioConfig);
 }
 
 void SpiParamInit(spiHandleConfig_t *pSpiHandle)
 {
-
     SPI_InitTypeDef spiInitStructure;
     spiInitStructure.SPI_BaudRatePrescaler = pSpiHandle->spiParamConfig.spiBaudRatePrescaler;
     spiInitStructure.SPI_CPHA = pSpiHandle->spiParamConfig.spiCPHA;
@@ -56,16 +57,7 @@ void SpiParamInit(spiHandleConfig_t *pSpiHandle)
     
     SPI_Init(pSpiHandle->pSPIx, &spiInitStructure);
     SPI_Cmd(pSpiHandle->pSPIx, ENABLE);
-    
 }
-
-// void SpiInit()
-// {
-//     SpiPeripheralClockConfig(SPI_TypeDef *pSPIx, FunctionalState clockState);
-//     SpiParamInit(spiHandleConfig_t *pSpiHandle);
-
-// }
-
 
 void SpiSendData(SPI_TypeDef* pSPIx, uint8_t *pTxBuffer , uint32_t length)
 {
@@ -115,9 +107,4 @@ void SPIReadData(SPI_TypeDef* pSPIx, uint8_t *pRxBuffer , uint32_t length)
 			pRxBuffer++ ;
         }
     }
-
 }
-
-
-
-

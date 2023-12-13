@@ -16,24 +16,6 @@
 #include "stm32f10x.h"
 #include "stm32f10x_spi.h"
 
-/* DWM1000模块接口定义 */
-#define DWM1000_SPI            SPI1
-
-#define DWM1000_SPI_CS_PORT     GPIOA
-#define DWM1000_SPI_CS_PIN      GPIO_Pin_4
-
-#define DWM1000_SPI_CLK_PORT    GPIOA
-#define DWM1000_SPI_CLK_PIN     GPIO_Pin_5
-
-#define DWM1000_SPI_MISO_PORT   GPIOA
-#define DWM1000_SPI_MISO_PIN    GPIO_Pin_6
-
-#define DWM1000_SPI_MOSI_PORT   GPIOA
-#define DWM1000_SPI_MOSI_PIN    GPIO_Pin_7
-
-#define DWM1000_RST_PORT        GPIOA
-#define DWM1000_RST_PIN         GPIO_Pin_0
-
 /* SPI Parameter Config Struct define */
 typedef struct 
 {
@@ -60,5 +42,13 @@ typedef struct
     uint32_t rxLen;
     uint8_t  txState; 
 }spiHandleConfig_t;
+
+void SpiPeripheralClockConfig(SPI_TypeDef *pSPIx, FunctionalState clockState);
+void SpiGpioInit(GPIO_TypeDef* spiDevicePort, uint16_t spiDevicePortMode, 
+                    uint16_t spiDevicePin, uint16_t spiDevicePortSpeed);
+void SpiParamInit(spiHandleConfig_t *pSpiHandle);
+void SpiSendData(SPI_TypeDef* pSPIx, uint8_t *pTxBuffer , uint32_t length);
+void SPIReadData(SPI_TypeDef* pSPIx, uint8_t *pRxBuffer , uint32_t length);
+    
 
 #endif

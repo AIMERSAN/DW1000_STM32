@@ -15,32 +15,46 @@
 #include "deca_spi.h"
 #include "deca_sleep.h"
 #include "deca_device_api.h"
-#include "port.h"
+
+#include "drv_Spi.h"
 
 
-int writetospi_serial( uint16_t headerLength,
-                       const uint8_t *headerBuffer,
-                       uint32_t bodylength,
-                       const uint8_t *bodyBuffer
-                     );
+// #include "port.h"
 
-int readfromspi_serial( uint16_t	headerLength,
+
+int writetospi_serial(SPI_TypeDef*    SPIx,
+                        GPIO_TypeDef*  SPIx_CS_GPIO,
+                        uint16_t       SPIx_CS_PIN,
+                        uint16_t headerLength,
+                        const uint8_t *headerBuffer,
+                        uint32_t bodylength,
+                        const uint8_t *bodyBuffer);
+
+int readfromspi_serial(SPI_TypeDef*    SPIx,
+                        GPIO_TypeDef*  SPIx_CS_GPIO,
+                        uint16_t       SPIx_CS_PIN,
+                        uint16_t	headerLength,
                         const uint8_t *headerBuffer,
                         uint32_t readlength,
-                        uint8_t *readBuffer );
+                        uint8_t *readBuffer);
+
 /*! ------------------------------------------------------------------------------------------------------------------
  * Function: openspi()
  *
  * Low level abstract function to open and initialise access to the SPI device.
  * returns 0 for success, or -1 for error
  */
-int openspi(/*SPI_TypeDef* SPIx*/)
-{
-    // done by port.c, default SPI used is SPI1
 
-    return 0;
+// int openspi(/*SPI_TypeDef* SPIx*/)
+// {
+//     // done by port.c, default SPI used is SPI1
+    
 
-} // end openspi()
+//     return 0;
+
+// } // end openspi()
+
+
 
 /*! -----------------------------------------------/‘-------------------------------------------------------------------
  * Function: closespi()
@@ -48,15 +62,18 @@ int openspi(/*SPI_TypeDef* SPIx*/)
  * Low level abstract function to close the the SPI device.
  * returns 0 for success, or -1 for error
  */
-int closespi(void)
-{
-    while (port_SPIx_busy_sending()); //wait for tx buffer to empty
 
-    port_SPIx_disable();
 
-    return 0;
+// int closespi(void)
+// {
+//     while (port_SPIx_busy_sending()); //wait for tx buffer to empty
 
-} // end closespi()
+//     port_SPIx_disable();
+
+//     return 0;
+
+// } // end closespi()
+
 
 /*! ------------------------------------------------------------------------------------------------------------------
  * Function: writetospi()
@@ -65,25 +82,30 @@ int closespi(void)
  * Takes two separate byte buffers for write header and write data
  * returns 0 for success, or -1 for error
  */
+
+
 #pragma GCC optimize ("O3")
 int writetospi_serial
 (
+    SPI_TypeDef*   SPIx,
+    GPIO_TypeDef*  SPIx_CS_GPIO,
+    uint16_t       SPIx_CS_PIN,
     uint16_t       headerLength,
     const uint8_t *headerBuffer,
     uint32_t       bodylength,
     const uint8_t *bodyBuffer
 )
 {
+    spiHandleConfig_t spiHandleConfig;
+    int i = 0;
 
-    int i=0;
+    decaIrqStatus_t stat;
 
-    decaIrqStatus_t  stat ;
+    stat = decamutexon();
 
-    stat = decamutexon() ;
+    SPIx_CS_GPIO->BRR = SPIx_CS_PIN;
 
-    SPIx_CS_GPIO->BRR = SPIx_CS;
-
-    for(i=0; i<headerLength; i++)
+    for(i = 0; i < headerLength; i++)
     {
         SPIx->DR = headerBuffer[i];
 
@@ -92,7 +114,7 @@ int writetospi_serial
         SPIx->DR ;
     }
 
-    for(i=0; i<bodylength; i++)
+    for(i = 0; i < bodylength; i++)
     {
         SPIx->DR = bodyBuffer[i];
 
@@ -101,12 +123,14 @@ int writetospi_serial
         SPIx->DR ;
     }
 
-    SPIx_CS_GPIO->BSRR = SPIx_CS;
+    SPIx_CS_GPIO->BSRR = SPIx_CS_PIN;
 
-    decamutexoff(stat) ;
+    decamutexoff(stat);
 
     return 0;
+
 } // end writetospi()
+
 
 
 /*! ------------------------------------------------------------------------------------------------------------------
@@ -117,9 +141,14 @@ int writetospi_serial
  * returns the offset into read buffer where first byte of read data may be found,
  * or returns -1 if there was an error
  */
+
+
 #pragma GCC optimize ("O3")
 int readfromspi_serial
 (
+    SPI_TypeDef*    SPIx,
+    GPIO_TypeDef*  SPIx_CS_GPIO,
+    uint16_t       SPIx_CS_PIN,
     uint16_t       headerLength,
     const uint8_t *headerBuffer,
     uint32_t       readlength,
@@ -136,7 +165,7 @@ int readfromspi_serial
     /* Wait for SPIx Tx buffer empty */
     //while (port_SPIx_busy_sending());
 
-    SPIx_CS_GPIO->BRR = SPIx_CS;
+    SPIx_CS_GPIO->BRR = SPIx_CS_GPIO;
 
     for(i=0; i<headerLength; i++)
     {
@@ -156,7 +185,7 @@ int readfromspi_serial
         readBuffer[i] = SPIx->DR ;//port_SPIx_receive_data(); //this clears RXNE bit
     }
 
-    SPIx_CS_GPIO->BSRR = SPIx_CS;
+    SPIx_CS_GPIO->BSRR = SPIx_CS_PIN;
 
     decamutexoff(stat) ;
 

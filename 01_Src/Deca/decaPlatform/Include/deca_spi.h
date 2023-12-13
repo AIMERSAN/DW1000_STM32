@@ -14,6 +14,8 @@
 #ifndef _DECA_SPI_H_
 #define _DECA_SPI_H_
 
+#include "drv_Spi.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -28,7 +30,7 @@ extern "C" {
  * Low level abstract function to open and initialise access to the SPI device.
  * returns 0 for success, or -1 for error
  */
-int openspi(void) ;
+//int openspi(void) ;
 
 /*! ------------------------------------------------------------------------------------------------------------------
  * Function: closespi()
@@ -36,8 +38,23 @@ int openspi(void) ;
  * Low level abstract function to close the the SPI device.
  * returns 0 for success, or -1 for error
  */
-int closespi(void) ;
+//int closespi(void) ;
 
+int writetospi_serial
+(
+    uint16_t       headerLength,
+    const uint8_t *headerBuffer,
+    uint32_t       bodylength,
+    const uint8_t *bodyBuffer
+);
+
+int readfromspi_serial
+(
+    uint16_t       headerLength,
+    const uint8_t *headerBuffer,
+    uint32_t       readlength,
+    uint8_t       *readBuffer
+);
 #ifdef __cplusplus
 }
 #endif
