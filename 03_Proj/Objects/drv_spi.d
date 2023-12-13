@@ -32,3 +32,4 @@
 .\objects\drv_spi.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\drv_spi.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\drv_spi.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\misc.h
+.\objects\drv_spi.o: ..\01_Src\Drv\Include\drv_gpio.h
