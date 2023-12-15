@@ -75,7 +75,17 @@ compiling bsp_DWM1000.c...
 ..\01_Src\BSP\Source\bsp_DWM1000.c(97): warning:  #167-D: argument of type "gpioHandle_t **" is incompatible with parameter of type "gpioHandle_t *"
           GpioConfigInit(DWM1000_RST_PORT, &gpioConfigHandle);
 ..\01_Src\BSP\Source\bsp_DWM1000.c: 7 warnings, 1 error
-".\Objects\BaseStation.axf" - 6 Error(s), 15 Warning(s).
+compiling deca_sleep.c...
+..\01_Src\BSP\Include\bsp_DWM1000.h(54): warning:  #92-D: identifier-list parameters may only be used in a function definition
+  void Dwm1000RSTnIrqConfig(enable);
+..\01_Src\Deca\decaPlatform\Source\deca_sleep.c: 1 warning, 0 errors
+compiling drv_Spi.c...
+..\01_Src\Drv\Source\drv_Spi.c(70): warning:  #63-D: shift count is too large
+          if ((pSPIx->CR1 & (1 << SPI_CR1_DFF))) 
+..\01_Src\Drv\Source\drv_Spi.c(95): warning:  #63-D: shift count is too large
+          if((pSPIx->CR1 &(1 <<SPI_CR1_DFF)))
+..\01_Src\Drv\Source\drv_Spi.c: 2 warnings, 0 errors
+".\Objects\BaseStation.axf" - 6 Error(s), 18 Warning(s).
 
 <h2>Software Packages used:</h2>
 

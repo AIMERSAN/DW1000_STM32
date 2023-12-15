@@ -12,9 +12,9 @@
         },
         "files.associations": {
             "*.C": "c",
-            "deca_sleep.h": "c",
+            "app_dwm1000.h": "c",
             "bsp_dwm1000.h": "c",
-            "stm32f10x_spi.h": "c",
+            "deca_regs.h": "c",
             "drv_spi.h": "c",
             "deca_device_api.h": "c"
         }

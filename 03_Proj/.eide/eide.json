@@ -13,6 +13,9 @@
         "name": "App",
         "files": [
           {
+            "path": "../01_Src/App/Source/app_dwm1000.c"
+          },
+          {
             "path": "../01_Src/App/Source/app_main.c"
           },
           {
