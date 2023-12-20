@@ -17,6 +17,7 @@
 extern "C" {
 #endif
 
+#include "stm32f10x.h"
 
 #ifndef uint8
 #ifndef _DECA_UINT8_
@@ -1476,6 +1477,9 @@ int dwt_write16bitoffsetreg(int regFileID, int regOffset, uint16 regval) ;
  * Note: The body of this function is defined in deca_spi.c and is platform specific
  *
  * input parameters:
+ * @param SPIx
+ * @param SPIx_CS_GPIO
+ * @param SPIx_CS_PIN
  * @param headerLength  - number of bytes header being written
  * @param headerBuffer  - pointer to buffer containing the 'headerLength' bytes of header to be written
  * @param bodylength    - number of bytes data being written
@@ -1487,10 +1491,13 @@ int dwt_write16bitoffsetreg(int regFileID, int regOffset, uint16 regval) ;
  */
 extern int writetospi                          // returns 0 for success, or, -1 for error.
 (
-    uint16       headerLength,          // input parameter - number of bytes header being written
-    const uint8 *headerBuffer,          // input parameter - pointer to buffer containing the 'headerLength' bytes of header to be written
-    uint32       bodylength,            // input parameter - number of bytes data being written
-    const uint8 *bodyBuffer             // input parameter - pointer to buffer containing the 'bodylength' bytes od data to be written
+    SPI_TypeDef*   SPIx,
+    GPIO_TypeDef*  SPIx_CS_GPIO,
+    uint16_t       SPIx_CS_PIN,
+    uint16_t       headerLength,          // input parameter - number of bytes header being written
+    const uint8_t *headerBuffer,          // input parameter - pointer to buffer containing the 'headerLength' bytes of header to be written
+    uint32_t       bodylength,            // input parameter - number of bytes data being written
+    const uint8_t *bodyBuffer             // input parameter - pointer to buffer containing the 'bodylength' bytes od data to be written
 ) ;
 
 /*! ------------------------------------------------------------------------------------------------------------------
@@ -1506,6 +1513,9 @@ extern int writetospi                          // returns 0 for success, or, -1 
  * Note: The body of this function is defined in deca_spi.c and is platform specific
  *
  * input parameters:
+ * @param SPIx
+ * @param SPIx_CS_GPIO
+ * @param SPIx_CS_PIN
  * @param headerLength  - number of bytes header to write
  * @param headerBuffer  - pointer to buffer containing the 'headerLength' bytes of header to write
  * @param bodylength    - number of bytes data being read
@@ -1517,10 +1527,13 @@ extern int writetospi                          // returns 0 for success, or, -1 
  */
 extern int readfromspi                         // returns offset where requested data begins in supplied buffer, or, -1 for error.
 (
-    uint16       headerLength,          // input parameter - number of bytes header to write
-    const uint8 *headerBuffer,          // input parameter - pointer to buffer containing the 'headerLength' bytes of header to write
-    uint32       readlength,            // input parameter - number of bytes data being read
-    uint8       *readBuffer             // input parameter - pointer to buffer containing to return the data (NB: size required = headerLength + readlength)
+    SPI_TypeDef*   SPIx,
+    GPIO_TypeDef*  SPIx_CS_GPIO,
+    uint16_t       SPIx_CS_PIN,
+    uint16_t       headerLength,          // input parameter - number of bytes header to write
+    const uint8_t *headerBuffer,          // input parameter - pointer to buffer containing the 'headerLength' bytes of header to write
+    uint32_t       readlength,            // input parameter - number of bytes data being read
+    uint8_t       *readBuffer             // input parameter - pointer to buffer containing to return the data (NB: size required = headerLength + readlength)
 ) ;
 
 /*! ------------------------------------------------------------------------------------------------------------------

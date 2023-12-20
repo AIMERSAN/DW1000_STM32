@@ -51,7 +51,7 @@ typedef unsigned long long uint64;
 #define SPEED_OF_LIGHT  299702547  /* 光速 */
 
 void Dwm1000DeviceInit(void);
-void Dwm1000Respond(void);
+void Dwm1000Respond(double *dis);
 
 
 

@@ -19,6 +19,9 @@
             "path": "../01_Src/App/Source/app_main.c"
           },
           {
+            "path": "../01_Src/App/Source/app_mcu.c"
+          },
+          {
             "path": "../01_Src/App/Source/app_stm32f10x_it.c"
           }
         ],
@@ -221,7 +224,8 @@
   "targets": {
     "BaseStation": {
       "excludeList": [
-        "<virtual_root>/Drv/drv_Rcc.c"
+        "<virtual_root>/Drv/drv_Rcc.c",
+        "<virtual_root>/Com/com_BufferManage.c"
       ],
       "toolchain": "AC5",
       "compileConfig": {

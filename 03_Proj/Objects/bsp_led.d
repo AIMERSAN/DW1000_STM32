@@ -1,6 +1,6 @@
 .\objects\bsp_led.o: ..\01_Src\BSP\Source\bsp_Led.c
 .\objects\bsp_led.o: ..\01_Src\BSP\Include\bsp_Led.h
-.\objects\bsp_led.o: ..\01_Src\Drv\Include\drv_Gpio.h
+.\objects\bsp_led.o: ..\01_Src\Drv\Include\drv_Rcc.h
 .\objects\bsp_led.o: ..\02_Lib\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\objects\bsp_led.o: ..\02_Lib\CMSIS\CM3\CoreSupport\core_cm3.h
 .\objects\bsp_led.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdint.h
@@ -33,3 +33,5 @@
 .\objects\bsp_led.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\bsp_led.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\bsp_led.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\misc.h
+.\objects\bsp_led.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\math.h
+.\objects\bsp_led.o: ..\01_Src\Drv\Include\drv_Gpio.h

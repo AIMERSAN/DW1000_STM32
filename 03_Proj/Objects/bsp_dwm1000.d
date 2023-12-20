@@ -1,9 +1,8 @@
 .\objects\bsp_dwm1000.o: ..\01_Src\BSP\Source\bsp_DWM1000.c
+.\objects\bsp_dwm1000.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdint.h
 .\objects\bsp_dwm1000.o: ..\01_Src\BSP\Include\bsp_DWM1000.h
-.\objects\bsp_dwm1000.o: ..\01_Src\Drv\Include\drv_Spi.h
 .\objects\bsp_dwm1000.o: ..\02_Lib\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\objects\bsp_dwm1000.o: ..\02_Lib\CMSIS\CM3\CoreSupport\core_cm3.h
-.\objects\bsp_dwm1000.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdint.h
 .\objects\bsp_dwm1000.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_version.h
 .\objects\bsp_dwm1000.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_compiler.h
 .\objects\bsp_dwm1000.o: ..\02_Lib\CMSIS\CM3\CoreSupport\cmsis_armcc.h
@@ -33,6 +32,7 @@
 .\objects\bsp_dwm1000.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\bsp_dwm1000.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\bsp_dwm1000.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\misc.h
+.\objects\bsp_dwm1000.o: ..\01_Src\Drv\Include\drv_Spi.h
 .\objects\bsp_dwm1000.o: ..\01_Src\Drv\Include\drv_Gpio.h
 .\objects\bsp_dwm1000.o: ..\01_Src\Deca\decaPlatform\Include\deca_spi.h
 .\objects\bsp_dwm1000.o: ..\01_Src\Deca\decaDriver\Include\deca_types.h

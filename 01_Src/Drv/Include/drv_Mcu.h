@@ -1,6 +1,6 @@
 #ifndef __MCU_H
 #define __MCU_H
-#include "stm32f10x.h"
+
 
 #define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
@@ -62,6 +62,6 @@ void GetSTM32MCUID(uint32_t *MCUID,char AddrID);
 void Delay_Init(void);
 void delay_us(uint32_t nus);
 void delay_ms(u16 nms);
-
+ITStatus EXTIGetITEnStatus(uint32_t EXTI_Line);
 
 #endif

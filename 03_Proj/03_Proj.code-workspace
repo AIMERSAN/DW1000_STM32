@@ -12,11 +12,18 @@
         },
         "files.associations": {
             "*.C": "c",
-            "app_dwm1000.h": "c",
             "bsp_dwm1000.h": "c",
-            "deca_regs.h": "c",
+            "bsp_bee.h": "c",
+            "bsp_led.h": "c",
+            "drv_gpio.h": "c",
+            "app_dwm1000.h": "c",
+            "app_mcu.h": "c",
+            "deca_param_types.h": "c",
+            "deca_spi.h": "c",
+            "stm32f10x.h": "c",
+            "deca_device_api.h": "c",
             "drv_spi.h": "c",
-            "deca_device_api.h": "c"
+            "drv_mcu.h": "c"
         }
     },
     "extensions": {}

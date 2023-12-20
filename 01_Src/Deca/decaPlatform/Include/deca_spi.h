@@ -42,6 +42,9 @@ extern "C" {
 
 int writetospi_serial
 (
+    SPI_TypeDef*   SPIx,
+    GPIO_TypeDef*  SPIx_CS_GPIO,
+    uint16_t       SPIx_CS_PIN,
     uint16_t       headerLength,
     const uint8_t *headerBuffer,
     uint32_t       bodylength,
@@ -50,11 +53,40 @@ int writetospi_serial
 
 int readfromspi_serial
 (
+    SPI_TypeDef*   SPIx,
+    GPIO_TypeDef*  SPIx_CS_GPIO,
+    uint16_t       SPIx_CS_PIN,
     uint16_t       headerLength,
     const uint8_t *headerBuffer,
     uint32_t       readlength,
     uint8_t       *readBuffer
 );
+
+extern int writetospi_serial
+(
+    SPI_TypeDef*   SPIx,
+    GPIO_TypeDef*  SPIx_CS_GPIO,
+    uint16_t       SPIx_CS_PIN,
+    uint16_t       headerLength,
+    const uint8_t *headerBuffer,
+    uint32_t       bodylength,
+    const uint8_t *bodyBuffer
+);
+
+extern int readfromspi_serial
+(
+    SPI_TypeDef*   SPIx,
+    GPIO_TypeDef*  SPIx_CS_GPIO,
+    uint16_t       SPIx_CS_PIN,
+    uint16_t       headerLength,
+    const uint8_t *headerBuffer,
+    uint32_t       readlength,
+    uint8_t       *readBuffer
+);
+
+#define writetospi writetospi_serial
+#define readfromspi readfromspi_serial
+
 #ifdef __cplusplus
 }
 #endif

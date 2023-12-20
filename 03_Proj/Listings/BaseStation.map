@@ -4,18 +4,65 @@ Component: ARM Compiler 5.06 update 7 (build 960) Tool: armlink [4d3601]
 
 Section Cross References
 
+    app_main.o(i.main) refers to app_mcu.o(i.DeviceInit) for DeviceInit
+    app_main.o(i.main) refers to app_dwm1000.o(i.Dwm1000Respond) for Dwm1000Respond
+    app_dwm1000.o(i.Dwm1000DeviceInit) refers to bsp_dwm1000.o(i.Dwm1000SpiInit) for Dwm1000SpiInit
+    app_dwm1000.o(i.Dwm1000DeviceInit) refers to deca_sleep.o(i.deca_sleep) for deca_sleep
+    app_dwm1000.o(i.Dwm1000DeviceInit) refers to bsp_dwm1000.o(i.Dwm1000Reset) for Dwm1000Reset
+    app_dwm1000.o(i.Dwm1000DeviceInit) refers to bsp_dwm1000.o(i.Dwm1000SetBaudRate) for Dwm1000SetBaudRate
+    app_dwm1000.o(i.Dwm1000DeviceInit) refers to deca_device.o(i.dwt_initialise) for dwt_initialise
+    app_dwm1000.o(i.Dwm1000DeviceInit) refers to deca_device.o(i.dwt_configure) for dwt_configure
+    app_dwm1000.o(i.Dwm1000DeviceInit) refers to deca_device.o(i.dwt_setrxantennadelay) for dwt_setrxantennadelay
+    app_dwm1000.o(i.Dwm1000DeviceInit) refers to app_dwm1000.o(.data) for .data
+    app_dwm1000.o(i.Dwm1000Respond) refers to deca_device.o(i.dwt_setrxtimeout) for dwt_setrxtimeout
+    app_dwm1000.o(i.Dwm1000Respond) refers to deca_device.o(i.dwt_rxenable) for dwt_rxenable
+    app_dwm1000.o(i.Dwm1000Respond) refers to deca_device.o(i.dwt_read32bitoffsetreg) for dwt_read32bitoffsetreg
+    app_dwm1000.o(i.Dwm1000Respond) refers to deca_device.o(i.dwt_write32bitoffsetreg) for dwt_write32bitoffsetreg
+    app_dwm1000.o(i.Dwm1000Respond) refers to deca_device.o(i.dwt_readrxdata) for dwt_readrxdata
+    app_dwm1000.o(i.Dwm1000Respond) refers to memcmp.o(.text) for memcmp
+    app_dwm1000.o(i.Dwm1000Respond) refers to app_dwm1000.o(i.getRxTimeStampU64) for getRxTimeStampU64
+    app_dwm1000.o(i.Dwm1000Respond) refers to deca_device.o(i.dwt_setdelayedtrxtime) for dwt_setdelayedtrxtime
+    app_dwm1000.o(i.Dwm1000Respond) refers to deca_device.o(i.dwt_setrxaftertxdelay) for dwt_setrxaftertxdelay
+    app_dwm1000.o(i.Dwm1000Respond) refers to dmul.o(x$fpl$dmul) for __aeabi_dmul
+    app_dwm1000.o(i.Dwm1000Respond) refers to dleqf.o(x$fpl$dleqf) for __aeabi_cdcmple
+    app_dwm1000.o(i.Dwm1000Respond) refers to dfixu.o(x$fpl$dfixu) for __aeabi_d2uiz
+    app_dwm1000.o(i.Dwm1000Respond) refers to deca_device.o(i.dwt_writetxdata) for dwt_writetxdata
+    app_dwm1000.o(i.Dwm1000Respond) refers to deca_device.o(i.dwt_writetxfctrl) for dwt_writetxfctrl
+    app_dwm1000.o(i.Dwm1000Respond) refers to deca_device.o(i.dwt_starttx) for dwt_starttx
+    app_dwm1000.o(i.Dwm1000Respond) refers to app_dwm1000.o(i.finalMsgGetTs) for finalMsgGetTs
+    app_dwm1000.o(i.Dwm1000Respond) refers to dflt_clz.o(x$fpl$dfltu) for __aeabi_ui2d
+    app_dwm1000.o(i.Dwm1000Respond) refers to daddsub_clz.o(x$fpl$dadd) for __aeabi_dadd
+    app_dwm1000.o(i.Dwm1000Respond) refers to daddsub_clz.o(x$fpl$dsub) for __aeabi_dsub
+    app_dwm1000.o(i.Dwm1000Respond) refers to ddiv.o(x$fpl$ddiv) for __aeabi_ddiv
+    app_dwm1000.o(i.Dwm1000Respond) refers to dfixll.o(x$fpl$llsfromd) for __aeabi_d2lz
+    app_dwm1000.o(i.Dwm1000Respond) refers to dfltll_clz.o(x$fpl$dfltll) for __aeabi_l2d
+    app_dwm1000.o(i.Dwm1000Respond) refers to app_dwm1000.o(.data) for .data
+    app_dwm1000.o(i.Dwm1000Respond) refers to app_dwm1000.o(.bss) for .bss
+    app_dwm1000.o(i.getRxTimeStampU64) refers to deca_device.o(i.dwt_readrxtimestamp) for dwt_readrxtimestamp
+    app_mcu.o(i.DeviceInit) refers to bsp_dwm1000.o(i.Dwm1000SpiInit) for Dwm1000SpiInit
+    app_mcu.o(i.DeviceInit) refers to app_dwm1000.o(i.Dwm1000DeviceInit) for Dwm1000DeviceInit
+    app_mcu.o(i.DeviceInit) refers to bsp_led.o(i.LedGpioInit) for LedGpioInit
+    app_mcu.o(i.DeviceInit) refers to bsp_bee.o(i.BeeGpioInit) for BeeGpioInit
     bsp_bee.o(i.BeeClose) refers to drv_gpio.o(i.GpioWriteToOutputPin) for GpioWriteToOutputPin
-    bsp_bee.o(i.BeeInitConfig) refers to stm32f10x_gpio.o(i.GPIO_DeInit) for GPIO_DeInit
-    bsp_bee.o(i.BeeInitConfig) refers to drv_gpio.o(i.GpioPeripheralClockConfig) for GpioPeripheralClockConfig
-    bsp_bee.o(i.BeeInitConfig) refers to drv_gpio.o(i.GpioConfigInit) for GpioConfigInit
+    bsp_bee.o(i.BeeGpioInit) refers to stm32f10x_gpio.o(i.GPIO_DeInit) for GPIO_DeInit
+    bsp_bee.o(i.BeeGpioInit) refers to drv_gpio.o(i.GpioPeripheralClockConfig) for GpioPeripheralClockConfig
+    bsp_bee.o(i.BeeGpioInit) refers to drv_gpio.o(i.GpioConfigInit) for GpioConfigInit
     bsp_bee.o(i.BeeOpen) refers to drv_gpio.o(i.GpioWriteToOutputPin) for GpioWriteToOutputPin
+    bsp_dwm1000.o(i.Dwm1000RSTnIrqConfig) refers to drv_gpio.o(i.GpioConfigInit) for GpioConfigInit
+    bsp_dwm1000.o(i.Dwm1000RSTnIrqConfig) refers to stm32f10x_gpio.o(i.GPIO_EXTILineConfig) for GPIO_EXTILineConfig
+    bsp_dwm1000.o(i.Dwm1000RSTnIrqConfig) refers to stm32f10x_exti.o(i.EXTI_Init) for EXTI_Init
+    bsp_dwm1000.o(i.Dwm1000RSTnIrqConfig) refers to misc.o(i.NVIC_PriorityGroupConfig) for NVIC_PriorityGroupConfig
+    bsp_dwm1000.o(i.Dwm1000RSTnIrqConfig) refers to misc.o(i.NVIC_Init) for NVIC_Init
     bsp_dwm1000.o(i.Dwm1000Reset) refers to drv_spi.o(i.SpiGpioInit) for SpiGpioInit
     bsp_dwm1000.o(i.Dwm1000Reset) refers to drv_gpio.o(i.GpioWriteToOutputPin) for GpioWriteToOutputPin
-    bsp_dwm1000.o(i.Dwm1000SpiInitConfig) refers to drv_spi.o(i.SpiGpioInit) for SpiGpioInit
-    bsp_dwm1000.o(i.Dwm1000SpiInitConfig) refers to drv_gpio.o(i.GpioWriteToOutputPin) for GpioWriteToOutputPin
-    bsp_dwm1000.o(i.Dwm1000SpiInitConfig) refers to stm32f10x_spi.o(i.SPI_I2S_DeInit) for SPI_I2S_DeInit
-    bsp_dwm1000.o(i.Dwm1000SpiInitConfig) refers to drv_spi.o(i.SpiParamInit) for SpiParamInit
-    bsp_dwm1000.o(i.Dwm1000SpiInitConfig) refers to bsp_dwm1000.o(.bss) for .bss
+    bsp_dwm1000.o(i.Dwm1000SetBaudRate) refers to drv_spi.o(i.SpiParamInit) for SpiParamInit
+    bsp_dwm1000.o(i.Dwm1000SetBaudRate) refers to bsp_dwm1000.o(.bss) for .bss
+    bsp_dwm1000.o(i.Dwm1000SpiInit) refers to drv_spi.o(i.SpiGpioInit) for SpiGpioInit
+    bsp_dwm1000.o(i.Dwm1000SpiInit) refers to drv_gpio.o(i.GpioWriteToOutputPin) for GpioWriteToOutputPin
+    bsp_dwm1000.o(i.Dwm1000SpiInit) refers to stm32f10x_spi.o(i.SPI_I2S_DeInit) for SPI_I2S_DeInit
+    bsp_dwm1000.o(i.Dwm1000SpiInit) refers to drv_spi.o(i.SpiParamInit) for SpiParamInit
+    bsp_dwm1000.o(i.Dwm1000SpiInit) refers to drv_spi.o(i.SpiPeripheralClockConfig) for SpiPeripheralClockConfig
+    bsp_dwm1000.o(i.Dwm1000SpiInit) refers to bsp_dwm1000.o(.bss) for .bss
     bsp_dwm1000.o(i.getTickCount) refers to app_stm32f10x_it.o(.data) for time32Incr
     com_buffermanage.o(i.BufferManageCreate) refers to com_looplist.o(i.rbCreate) for rbCreate
     com_buffermanage.o(i.BufferManageRead) refers to com_looplist.o(i.rbCanRead) for rbCanRead
@@ -309,6 +356,10 @@ Section Cross References
     deca_range_tables.o(i.dwt_getrangebias) refers to dmul.o(x$fpl$dmul) for __aeabi_dmul
     deca_range_tables.o(i.dwt_getrangebias) refers to deca_range_tables.o(.constdata) for .constdata
     deca_sleep.o(i.deca_sleep) refers to bsp_dwm1000.o(i.getTickCount) for getTickCount
+    deca_spi.o(i.readfromspi_serial) refers to deca_mutex.o(i.decamutexon) for decamutexon
+    deca_spi.o(i.readfromspi_serial) refers to deca_mutex.o(i.decamutexoff) for decamutexoff
+    deca_spi.o(i.writetospi_serial) refers to deca_mutex.o(i.decamutexon) for decamutexon
+    deca_spi.o(i.writetospi_serial) refers to deca_mutex.o(i.decamutexoff) for decamutexoff
     stm32f10x_adc.o(i.ADC_DeInit) refers to stm32f10x_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
     stm32f10x_bkp.o(i.BKP_DeInit) refers to stm32f10x_rcc.o(i.RCC_BackupResetCmd) for RCC_BackupResetCmd
     stm32f10x_can.o(i.CAN_DeInit) refers to stm32f10x_rcc.o(i.RCC_APB1PeriphResetCmd) for RCC_APB1PeriphResetCmd
@@ -425,10 +476,41 @@ Section Cross References
     _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) refers (Special) to _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017) for _printf_percent_end
     rt_memcpy_v6.o(.text) refers to rt_memcpy_w.o(.text) for __aeabi_memcpy4
     __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    daddsub_clz.o(x$fpl$dadd) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    daddsub_clz.o(x$fpl$dadd) refers to daddsub_clz.o(x$fpl$dsub) for _dsub1
+    daddsub_clz.o(x$fpl$dadd) refers to dretinf.o(x$fpl$dretinf) for __fpl_dretinf
+    daddsub_clz.o(x$fpl$dadd) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    daddsub_clz.o(x$fpl$drsb) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    daddsub_clz.o(x$fpl$drsb) refers to daddsub_clz.o(x$fpl$dadd) for _dadd1
+    daddsub_clz.o(x$fpl$drsb) refers to daddsub_clz.o(x$fpl$dsub) for _dsub1
+    daddsub_clz.o(x$fpl$dsub) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    daddsub_clz.o(x$fpl$dsub) refers to daddsub_clz.o(x$fpl$dadd) for _dadd1
+    daddsub_clz.o(x$fpl$dsub) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    ddiv.o(x$fpl$drdiv) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    ddiv.o(x$fpl$drdiv) refers to ddiv.o(x$fpl$ddiv) for ddiv_entry
+    ddiv.o(x$fpl$ddiv) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    ddiv.o(x$fpl$ddiv) refers to dretinf.o(x$fpl$dretinf) for __fpl_dretinf
+    ddiv.o(x$fpl$ddiv) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
     dfix.o(x$fpl$dfix) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
     dfix.o(x$fpl$dfix) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
     dfix.o(x$fpl$dfixr) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
     dfix.o(x$fpl$dfixr) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dfixll.o(x$fpl$llsfromd) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfixll.o(x$fpl$llsfromd) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dfixll.o(x$fpl$llsfromdr) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfixll.o(x$fpl$llsfromdr) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dfixu.o(x$fpl$dfixu) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfixu.o(x$fpl$dfixu) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dfixu.o(x$fpl$dfixur) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfixu.o(x$fpl$dfixur) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dflt_clz.o(x$fpl$dfltu) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dflt_clz.o(x$fpl$dflt) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dflt_clz.o(x$fpl$dfltn) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfltll_clz.o(x$fpl$dfltll) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfltll_clz.o(x$fpl$dfltull) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dleqf.o(x$fpl$dleqf) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dleqf.o(x$fpl$dleqf) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dleqf.o(x$fpl$dleqf) refers to dcmpi.o(x$fpl$dcmpinf) for __fpl_dcmp_Inf
     dmul.o(x$fpl$dmul) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
     dmul.o(x$fpl$dmul) refers to dretinf.o(x$fpl$dretinf) for __fpl_dretinf
     dmul.o(x$fpl$dmul) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
@@ -457,6 +539,7 @@ Section Cross References
     stdio_streams.o(.data) refers (Special) to initio.o(.text) for _initio
     dcheck1.o(x$fpl$dcheck1) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
     dcheck1.o(x$fpl$dcheck1) refers to retnan.o(x$fpl$retnan) for __fpl_return_NaN
+    dcmpi.o(x$fpl$dcmpinf) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
     dnaninf.o(x$fpl$dnaninf) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
     dretinf.o(x$fpl$dretinf) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
     fnaninf.o(x$fpl$fnaninf) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
@@ -721,3 +804,705 @@ Section Cross References
     defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
     defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
 
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing app_main.o(.rev16_text), (4 bytes).
+    Removing app_main.o(.revsh_text), (4 bytes).
+    Removing app_main.o(.rrx_text), (6 bytes).
+    Removing app_stm32f10x_it.o(.rev16_text), (4 bytes).
+    Removing app_stm32f10x_it.o(.revsh_text), (4 bytes).
+    Removing app_stm32f10x_it.o(.rrx_text), (6 bytes).
+    Removing app_dwm1000.o(.rev16_text), (4 bytes).
+    Removing app_dwm1000.o(.revsh_text), (4 bytes).
+    Removing app_dwm1000.o(.rrx_text), (6 bytes).
+    Removing app_mcu.o(.rev16_text), (4 bytes).
+    Removing app_mcu.o(.revsh_text), (4 bytes).
+    Removing app_mcu.o(.rrx_text), (6 bytes).
+    Removing app_mcu.o(i.Init), (2 bytes).
+    Removing bsp_bee.o(.rev16_text), (4 bytes).
+    Removing bsp_bee.o(.revsh_text), (4 bytes).
+    Removing bsp_bee.o(.rrx_text), (6 bytes).
+    Removing bsp_bee.o(i.BeeClose), (16 bytes).
+    Removing bsp_bee.o(i.BeeOpen), (16 bytes).
+    Removing bsp_dwm1000.o(.rev16_text), (4 bytes).
+    Removing bsp_dwm1000.o(.revsh_text), (4 bytes).
+    Removing bsp_dwm1000.o(.rrx_text), (6 bytes).
+    Removing bsp_dwm1000.o(i.Dwm1000RSTnIrqConfig), (152 bytes).
+    Removing bsp_led.o(.rev16_text), (4 bytes).
+    Removing bsp_led.o(.revsh_text), (4 bytes).
+    Removing bsp_led.o(.rrx_text), (6 bytes).
+    Removing bsp_led.o(i.LedOff), (2 bytes).
+    Removing bsp_led.o(i.LedOn), (2 bytes).
+    Removing bsp_led.o(i.LedToggle), (2 bytes).
+    Removing com_buffermanage.o(.rev16_text), (4 bytes).
+    Removing com_buffermanage.o(.revsh_text), (4 bytes).
+    Removing com_buffermanage.o(.rrx_text), (6 bytes).
+    Removing com_buffermanage.o(i.BufferManageCreate), (48 bytes).
+    Removing com_buffermanage.o(i.BufferManageRead), (66 bytes).
+    Removing com_buffermanage.o(i.BufferManageWrite), (82 bytes).
+    Removing com_looplist.o(.rev16_text), (4 bytes).
+    Removing com_looplist.o(.revsh_text), (4 bytes).
+    Removing com_looplist.o(.rrx_text), (6 bytes).
+    Removing com_looplist.o(i.rbCreate), (14 bytes).
+    Removing com_looplist.o(i.rbDelete), (16 bytes).
+    Removing com_multibutton.o(i.button_attach), (8 bytes).
+    Removing com_multibutton.o(i.button_handler), (438 bytes).
+    Removing com_multibutton.o(i.button_init), (54 bytes).
+    Removing com_multibutton.o(i.button_start), (36 bytes).
+    Removing com_multibutton.o(i.button_stop), (32 bytes).
+    Removing com_multibutton.o(i.button_ticks), (28 bytes).
+    Removing com_multibutton.o(i.get_button_event), (6 bytes).
+    Removing com_multibutton.o(.data), (4 bytes).
+    Removing com_multitimer.o(i.MultiTimerInstall), (12 bytes).
+    Removing com_multitimer.o(i.MultiTimerStart), (108 bytes).
+    Removing com_multitimer.o(i.MultiTimerStop), (32 bytes).
+    Removing com_multitimer.o(i.MultiTimerYield), (60 bytes).
+    Removing com_multitimer.o(.data), (8 bytes).
+    Removing drv_mcu.o(.rev16_text), (4 bytes).
+    Removing drv_mcu.o(.revsh_text), (4 bytes).
+    Removing drv_mcu.o(.rrx_text), (6 bytes).
+    Removing drv_mcu.o(i.Delay_Init), (60 bytes).
+    Removing drv_mcu.o(i.GetSTM32MCUID), (84 bytes).
+    Removing drv_mcu.o(i.NVIC_Configuration), (8 bytes).
+    Removing drv_mcu.o(i.Reset_MCU), (36 bytes).
+    Removing drv_mcu.o(i.delay_ms), (52 bytes).
+    Removing drv_mcu.o(i.delay_us), (52 bytes).
+    Removing drv_mcu.o(.data), (44 bytes).
+    Removing drv_gpio.o(.rev16_text), (4 bytes).
+    Removing drv_gpio.o(.revsh_text), (4 bytes).
+    Removing drv_gpio.o(.rrx_text), (6 bytes).
+    Removing drv_gpio.o(i.GpioToggleOutputPin), (12 bytes).
+    Removing drv_gpio.o(i.GpioWriteToOutputPort), (4 bytes).
+    Removing drv_uart.o(.rev16_text), (4 bytes).
+    Removing drv_uart.o(.revsh_text), (4 bytes).
+    Removing drv_uart.o(.rrx_text), (6 bytes).
+    Removing drv_uart.o(i.Uart_Init), (212 bytes).
+    Removing drv_uart.o(i.UsartOutChar), (22 bytes).
+    Removing drv_uart.o(i.UsartOutStr), (38 bytes).
+    Removing drv_uart.o(i.UsartOutStrIT), (44 bytes).
+    Removing drv_uart.o(i.fputc), (68 bytes).
+    Removing drv_uart.o(.bss), (1024 bytes).
+    Removing drv_timer.o(.rev16_text), (4 bytes).
+    Removing drv_timer.o(.revsh_text), (4 bytes).
+    Removing drv_timer.o(.rrx_text), (6 bytes).
+    Removing drv_timer.o(i.Timer2_Config), (108 bytes).
+    Removing drv_spi.o(.rev16_text), (4 bytes).
+    Removing drv_spi.o(.revsh_text), (4 bytes).
+    Removing drv_spi.o(.rrx_text), (6 bytes).
+    Removing drv_spi.o(i.SPIReadData), (38 bytes).
+    Removing drv_spi.o(i.SpiSendData), (38 bytes).
+    Removing drv_iwdg.o(.rev16_text), (4 bytes).
+    Removing drv_iwdg.o(.revsh_text), (4 bytes).
+    Removing drv_iwdg.o(.rrx_text), (6 bytes).
+    Removing drv_iwdg.o(i.IWDG_Feed), (4 bytes).
+    Removing drv_iwdg.o(i.IWDG_Init), (38 bytes).
+    Removing deca_device.o(.rev16_text), (4 bytes).
+    Removing deca_device.o(.revsh_text), (4 bytes).
+    Removing deca_device.o(.rrx_text), (6 bytes).
+    Removing deca_device.o(i._dwt_aonarrayupload), (40 bytes).
+    Removing deca_device.o(i._dwt_aonconfigupload), (40 bytes).
+    Removing deca_device.o(i._dwt_disablesequencing), (22 bytes).
+    Removing deca_device.o(i._dwt_otpprogword32), (162 bytes).
+    Removing deca_device.o(i._dwt_otpsetmrregs), (538 bytes).
+    Removing deca_device.o(i.dwt_calibratesleepcnt), (252 bytes).
+    Removing deca_device.o(i.dwt_checkIRQ), (24 bytes).
+    Removing deca_device.o(i.dwt_checkoverrun), (16 bytes).
+    Removing deca_device.o(i.dwt_configcontinuousframemode), (84 bytes).
+    Removing deca_device.o(i.dwt_configcwmode), (152 bytes).
+    Removing deca_device.o(i.dwt_configeventcounters), (46 bytes).
+    Removing deca_device.o(i.dwt_configuresleep), (40 bytes).
+    Removing deca_device.o(i.dwt_configuresleepcnt), (124 bytes).
+    Removing deca_device.o(i.dwt_configuretxrf), (30 bytes).
+    Removing deca_device.o(i.dwt_enableautoack), (40 bytes).
+    Removing deca_device.o(i.dwt_enableframefilter), (64 bytes).
+    Removing deca_device.o(i.dwt_entersleep), (4 bytes).
+    Removing deca_device.o(i.dwt_geteui), (12 bytes).
+    Removing deca_device.o(i.dwt_getlotid), (12 bytes).
+    Removing deca_device.o(i.dwt_getpartid), (12 bytes).
+    Removing deca_device.o(i.dwt_isr), (580 bytes).
+    Removing deca_device.o(i.dwt_loadopsettabfromotp), (52 bytes).
+    Removing deca_device.o(i.dwt_otpread), (46 bytes).
+    Removing deca_device.o(i.dwt_otprevision), (12 bytes).
+    Removing deca_device.o(i.dwt_otpwriteandverify), (80 bytes).
+    Removing deca_device.o(i.dwt_readaccdata), (36 bytes).
+    Removing deca_device.o(i.dwt_readdiagnostics), (60 bytes).
+    Removing deca_device.o(i.dwt_readeventcounters), (126 bytes).
+    Removing deca_device.o(i.dwt_readrxtimestamphi32), (8 bytes).
+    Removing deca_device.o(i.dwt_readrxtimestamplo32), (8 bytes).
+    Removing deca_device.o(i.dwt_readsystime), (12 bytes).
+    Removing deca_device.o(i.dwt_readsystimestamphi32), (8 bytes).
+    Removing deca_device.o(i.dwt_readtempvbat), (172 bytes).
+    Removing deca_device.o(i.dwt_readtxtimestamp), (12 bytes).
+    Removing deca_device.o(i.dwt_readtxtimestamphi32), (8 bytes).
+    Removing deca_device.o(i.dwt_readtxtimestamplo32), (8 bytes).
+    Removing deca_device.o(i.dwt_readwakeuptemp), (20 bytes).
+    Removing deca_device.o(i.dwt_readwakeupvbat), (20 bytes).
+    Removing deca_device.o(i.dwt_rxreset), (40 bytes).
+    Removing deca_device.o(i.dwt_setGPIOdirection), (34 bytes).
+    Removing deca_device.o(i.dwt_setGPIOforEXTTRX), (40 bytes).
+    Removing deca_device.o(i.dwt_setGPIOvalue), (34 bytes).
+    Removing deca_device.o(i.dwt_setaddress16), (10 bytes).
+    Removing deca_device.o(i.dwt_setautorxreenable), (52 bytes).
+    Removing deca_device.o(i.dwt_setcallbacks), (12 bytes).
+    Removing deca_device.o(i.dwt_setdblrxbuffmode), (40 bytes).
+    Removing deca_device.o(i.dwt_seteui), (12 bytes).
+    Removing deca_device.o(i.dwt_setinterrupt), (48 bytes).
+    Removing deca_device.o(i.dwt_setleds), (184 bytes).
+    Removing deca_device.o(i.dwt_setpanid), (10 bytes).
+    Removing deca_device.o(i.dwt_setpreambledetecttimeout), (10 bytes).
+    Removing deca_device.o(i.dwt_setrxmode), (24 bytes).
+    Removing deca_device.o(i.dwt_setsmarttxpower), (48 bytes).
+    Removing deca_device.o(i.dwt_settxantennadelay), (10 bytes).
+    Removing deca_device.o(i.dwt_softreset), (116 bytes).
+    Removing deca_device.o(i.dwt_spicswakeup), (56 bytes).
+    Removing deca_params_init.o(.rev16_text), (4 bytes).
+    Removing deca_params_init.o(.revsh_text), (4 bytes).
+    Removing deca_params_init.o(.rrx_text), (6 bytes).
+    Removing deca_range_tables.o(.rev16_text), (4 bytes).
+    Removing deca_range_tables.o(.revsh_text), (4 bytes).
+    Removing deca_range_tables.o(.rrx_text), (6 bytes).
+    Removing deca_range_tables.o(i.dwt_getrangebias), (216 bytes).
+    Removing deca_range_tables.o(.constdata), (522 bytes).
+    Removing deca_mutex.o(.rev16_text), (4 bytes).
+    Removing deca_mutex.o(.revsh_text), (4 bytes).
+    Removing deca_mutex.o(.rrx_text), (6 bytes).
+    Removing deca_spi.o(.rev16_text), (4 bytes).
+    Removing deca_spi.o(.revsh_text), (4 bytes).
+    Removing deca_spi.o(.rrx_text), (6 bytes).
+    Removing deca_spi.o(i.readfromspi_serial), (94 bytes).
+    Removing deca_spi.o(i.writetospi_serial), (90 bytes).
+    Removing stm32f10x_adc.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_adc.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_adc.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_adc.o(i.ADC_AnalogWatchdogCmd), (16 bytes).
+    Removing stm32f10x_adc.o(i.ADC_AnalogWatchdogSingleChannelConfig), (12 bytes).
+    Removing stm32f10x_adc.o(i.ADC_AnalogWatchdogThresholdsConfig), (6 bytes).
+    Removing stm32f10x_adc.o(i.ADC_AutoInjectedConvCmd), (20 bytes).
+    Removing stm32f10x_adc.o(i.ADC_ClearFlag), (6 bytes).
+    Removing stm32f10x_adc.o(i.ADC_ClearITPendingBit), (8 bytes).
+    Removing stm32f10x_adc.o(i.ADC_Cmd), (20 bytes).
+    Removing stm32f10x_adc.o(i.ADC_DMACmd), (20 bytes).
+    Removing stm32f10x_adc.o(i.ADC_DeInit), (68 bytes).
+    Removing stm32f10x_adc.o(i.ADC_DiscModeChannelCountConfig), (16 bytes).
+    Removing stm32f10x_adc.o(i.ADC_DiscModeCmd), (20 bytes).
+    Removing stm32f10x_adc.o(i.ADC_ExternalTrigConvCmd), (20 bytes).
+    Removing stm32f10x_adc.o(i.ADC_ExternalTrigInjectedConvCmd), (20 bytes).
+    Removing stm32f10x_adc.o(i.ADC_ExternalTrigInjectedConvConfig), (12 bytes).
+    Removing stm32f10x_adc.o(i.ADC_GetCalibrationStatus), (14 bytes).
+    Removing stm32f10x_adc.o(i.ADC_GetConversionValue), (6 bytes).
+    Removing stm32f10x_adc.o(i.ADC_GetDualModeConversionValue), (12 bytes).
+    Removing stm32f10x_adc.o(i.ADC_GetFlagStatus), (14 bytes).
+    Removing stm32f10x_adc.o(i.ADC_GetITStatus), (28 bytes).
+    Removing stm32f10x_adc.o(i.ADC_GetInjectedConversionValue), (14 bytes).
+    Removing stm32f10x_adc.o(i.ADC_GetResetCalibrationStatus), (14 bytes).
+    Removing stm32f10x_adc.o(i.ADC_GetSoftwareStartConvStatus), (14 bytes).
+    Removing stm32f10x_adc.o(i.ADC_GetSoftwareStartInjectedConvCmdStatus), (14 bytes).
+    Removing stm32f10x_adc.o(i.ADC_ITConfig), (18 bytes).
+    Removing stm32f10x_adc.o(i.ADC_Init), (72 bytes).
+    Removing stm32f10x_adc.o(i.ADC_InjectedChannelConfig), (74 bytes).
+    Removing stm32f10x_adc.o(i.ADC_InjectedDiscModeCmd), (20 bytes).
+    Removing stm32f10x_adc.o(i.ADC_InjectedSequencerLengthConfig), (16 bytes).
+    Removing stm32f10x_adc.o(i.ADC_RegularChannelConfig), (116 bytes).
+    Removing stm32f10x_adc.o(i.ADC_ResetCalibration), (10 bytes).
+    Removing stm32f10x_adc.o(i.ADC_SetInjectedOffset), (10 bytes).
+    Removing stm32f10x_adc.o(i.ADC_SoftwareStartConvCmd), (20 bytes).
+    Removing stm32f10x_adc.o(i.ADC_SoftwareStartInjectedConvCmd), (20 bytes).
+    Removing stm32f10x_adc.o(i.ADC_StartCalibration), (10 bytes).
+    Removing stm32f10x_adc.o(i.ADC_StructInit), (18 bytes).
+    Removing stm32f10x_adc.o(i.ADC_TempSensorVrefintCmd), (28 bytes).
+    Removing core_cm3.o(.emb_text), (32 bytes).
+    Removing misc.o(.rev16_text), (4 bytes).
+    Removing misc.o(.revsh_text), (4 bytes).
+    Removing misc.o(.rrx_text), (6 bytes).
+    Removing misc.o(i.NVIC_Init), (100 bytes).
+    Removing misc.o(i.NVIC_PriorityGroupConfig), (20 bytes).
+    Removing misc.o(i.NVIC_SetVectorTable), (20 bytes).
+    Removing misc.o(i.NVIC_SystemLPConfig), (24 bytes).
+    Removing misc.o(i.SysTick_CLKSourceConfig), (24 bytes).
+    Removing stm32f10x_bkp.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_bkp.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_bkp.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_ClearFlag), (16 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_ClearITPendingBit), (16 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_DeInit), (18 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_GetFlagStatus), (12 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_GetITStatus), (12 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_ITConfig), (12 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_RTCOutputConfig), (20 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_ReadBackupRegister), (16 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_SetRTCCalibrationValue), (20 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_TamperPinCmd), (12 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_TamperPinLevelConfig), (12 bytes).
+    Removing stm32f10x_bkp.o(i.BKP_WriteBackupRegister), (16 bytes).
+    Removing stm32f10x_can.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_can.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_can.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_can.o(i.CAN_CancelTransmit), (36 bytes).
+    Removing stm32f10x_can.o(i.CAN_ClearFlag), (48 bytes).
+    Removing stm32f10x_can.o(i.CAN_ClearITPendingBit), (120 bytes).
+    Removing stm32f10x_can.o(i.CAN_DBGFreeze), (20 bytes).
+    Removing stm32f10x_can.o(i.CAN_DeInit), (44 bytes).
+    Removing stm32f10x_can.o(i.CAN_FIFORelease), (22 bytes).
+    Removing stm32f10x_can.o(i.CAN_FilterInit), (204 bytes).
+    Removing stm32f10x_can.o(i.CAN_GetFlagStatus), (52 bytes).
+    Removing stm32f10x_can.o(i.CAN_GetITStatus), (168 bytes).
+    Removing stm32f10x_can.o(i.CAN_GetLSBTransmitErrorCounter), (8 bytes).
+    Removing stm32f10x_can.o(i.CAN_GetLastErrorCode), (10 bytes).
+    Removing stm32f10x_can.o(i.CAN_GetReceiveErrorCounter), (6 bytes).
+    Removing stm32f10x_can.o(i.CAN_ITConfig), (16 bytes).
+    Removing stm32f10x_can.o(i.CAN_Init), (232 bytes).
+    Removing stm32f10x_can.o(i.CAN_MessagePending), (22 bytes).
+    Removing stm32f10x_can.o(i.CAN_OperatingModeRequest), (140 bytes).
+    Removing stm32f10x_can.o(i.CAN_Receive), (142 bytes).
+    Removing stm32f10x_can.o(i.CAN_SlaveStartBank), (44 bytes).
+    Removing stm32f10x_can.o(i.CAN_Sleep), (30 bytes).
+    Removing stm32f10x_can.o(i.CAN_StructInit), (32 bytes).
+    Removing stm32f10x_can.o(i.CAN_TTComModeCmd), (90 bytes).
+    Removing stm32f10x_can.o(i.CAN_Transmit), (190 bytes).
+    Removing stm32f10x_can.o(i.CAN_TransmitStatus), (108 bytes).
+    Removing stm32f10x_can.o(i.CAN_WakeUp), (40 bytes).
+    Removing stm32f10x_can.o(i.CheckITStatus), (12 bytes).
+    Removing stm32f10x_cec.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_cec.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_cec.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_cec.o(i.CEC_ClearFlag), (32 bytes).
+    Removing stm32f10x_cec.o(i.CEC_ClearITPendingBit), (32 bytes).
+    Removing stm32f10x_cec.o(i.CEC_Cmd), (28 bytes).
+    Removing stm32f10x_cec.o(i.CEC_DeInit), (24 bytes).
+    Removing stm32f10x_cec.o(i.CEC_EndOfMessageCmd), (12 bytes).
+    Removing stm32f10x_cec.o(i.CEC_GetFlagStatus), (36 bytes).
+    Removing stm32f10x_cec.o(i.CEC_GetITStatus), (36 bytes).
+    Removing stm32f10x_cec.o(i.CEC_ITConfig), (12 bytes).
+    Removing stm32f10x_cec.o(i.CEC_Init), (24 bytes).
+    Removing stm32f10x_cec.o(i.CEC_OwnAddressConfig), (12 bytes).
+    Removing stm32f10x_cec.o(i.CEC_ReceiveDataByte), (12 bytes).
+    Removing stm32f10x_cec.o(i.CEC_SendDataByte), (12 bytes).
+    Removing stm32f10x_cec.o(i.CEC_SetPrescaler), (12 bytes).
+    Removing stm32f10x_cec.o(i.CEC_StartOfMessage), (16 bytes).
+    Removing stm32f10x_crc.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_crc.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_crc.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_crc.o(i.CRC_CalcBlockCRC), (28 bytes).
+    Removing stm32f10x_crc.o(i.CRC_CalcCRC), (12 bytes).
+    Removing stm32f10x_crc.o(i.CRC_GetCRC), (12 bytes).
+    Removing stm32f10x_crc.o(i.CRC_GetIDRegister), (12 bytes).
+    Removing stm32f10x_crc.o(i.CRC_ResetDR), (12 bytes).
+    Removing stm32f10x_crc.o(i.CRC_SetIDRegister), (12 bytes).
+    Removing stm32f10x_dac.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_dac.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_dac.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_dac.o(i.DAC_Cmd), (24 bytes).
+    Removing stm32f10x_dac.o(i.DAC_DMACmd), (24 bytes).
+    Removing stm32f10x_dac.o(i.DAC_DeInit), (24 bytes).
+    Removing stm32f10x_dac.o(i.DAC_DualSoftwareTriggerCmd), (28 bytes).
+    Removing stm32f10x_dac.o(i.DAC_GetDataOutputValue), (24 bytes).
+    Removing stm32f10x_dac.o(i.DAC_Init), (40 bytes).
+    Removing stm32f10x_dac.o(i.DAC_SetChannel1Data), (20 bytes).
+    Removing stm32f10x_dac.o(i.DAC_SetChannel2Data), (20 bytes).
+    Removing stm32f10x_dac.o(i.DAC_SetDualChannelData), (28 bytes).
+    Removing stm32f10x_dac.o(i.DAC_SoftwareTriggerCmd), (28 bytes).
+    Removing stm32f10x_dac.o(i.DAC_StructInit), (12 bytes).
+    Removing stm32f10x_dac.o(i.DAC_WaveGenerationCmd), (24 bytes).
+    Removing stm32f10x_dbgmcu.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_dbgmcu.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_dbgmcu.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_dbgmcu.o(i.DBGMCU_Config), (24 bytes).
+    Removing stm32f10x_dbgmcu.o(i.DBGMCU_GetDEVID), (16 bytes).
+    Removing stm32f10x_dbgmcu.o(i.DBGMCU_GetREVID), (12 bytes).
+    Removing stm32f10x_dma.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_dma.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_dma.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_dma.o(i.DMA_ClearFlag), (24 bytes).
+    Removing stm32f10x_dma.o(i.DMA_ClearITPendingBit), (24 bytes).
+    Removing stm32f10x_dma.o(i.DMA_Cmd), (22 bytes).
+    Removing stm32f10x_dma.o(i.DMA_DeInit), (228 bytes).
+    Removing stm32f10x_dma.o(i.DMA_GetCurrDataCounter), (6 bytes).
+    Removing stm32f10x_dma.o(i.DMA_GetFlagStatus), (32 bytes).
+    Removing stm32f10x_dma.o(i.DMA_GetITStatus), (32 bytes).
+    Removing stm32f10x_dma.o(i.DMA_ITConfig), (16 bytes).
+    Removing stm32f10x_dma.o(i.DMA_Init), (58 bytes).
+    Removing stm32f10x_dma.o(i.DMA_SetCurrDataCounter), (4 bytes).
+    Removing stm32f10x_dma.o(i.DMA_StructInit), (26 bytes).
+    Removing stm32f10x_exti.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_exti.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_exti.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_exti.o(i.EXTI_ClearFlag), (12 bytes).
+    Removing stm32f10x_exti.o(i.EXTI_ClearITPendingBit), (12 bytes).
+    Removing stm32f10x_exti.o(i.EXTI_DeInit), (36 bytes).
+    Removing stm32f10x_exti.o(i.EXTI_GenerateSWInterrupt), (16 bytes).
+    Removing stm32f10x_exti.o(i.EXTI_GetFlagStatus), (20 bytes).
+    Removing stm32f10x_exti.o(i.EXTI_GetITStatus), (32 bytes).
+    Removing stm32f10x_exti.o(i.EXTI_Init), (112 bytes).
+    Removing stm32f10x_exti.o(i.EXTI_StructInit), (14 bytes).
+    Removing stm32f10x_flash.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_flash.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_flash.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_ClearFlag), (12 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_EnableWriteProtection), (172 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_EraseAllBank1Pages), (56 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_EraseAllPages), (56 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_EraseOptionBytes), (124 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_ErasePage), (60 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_GetBank1Status), (40 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_GetFlagStatus), (32 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_GetPrefetchBufferStatus), (20 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_GetReadOutProtectionStatus), (20 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_GetStatus), (40 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_GetUserOptionByte), (12 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_GetWriteProtectionOptionByte), (12 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_HalfCycleAccessCmd), (24 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_ITConfig), (24 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_Lock), (16 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_LockBank1), (16 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_PrefetchBufferCmd), (24 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_ProgramHalfWord), (52 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_ProgramOptionByteData), (76 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_ProgramWord), (80 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_ReadOutProtection), (136 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_SetLatency), (20 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_Unlock), (24 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_UnlockBank1), (24 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_UserOptionByteConfig), (96 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_WaitForLastBank1Operation), (34 bytes).
+    Removing stm32f10x_flash.o(i.FLASH_WaitForLastOperation), (34 bytes).
+    Removing stm32f10x_fsmc.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_fsmc.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_fsmc.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_ClearFlag), (38 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_ClearITPendingBit), (42 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_GetECC), (18 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_GetFlagStatus), (40 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_GetITStatus), (48 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_ITConfig), (72 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_NANDCmd), (56 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_NANDDeInit), (40 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_NANDECCCmd), (56 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_NANDInit), (104 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_NANDStructInit), (54 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_NORSRAMCmd), (32 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_NORSRAMDeInit), (38 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_NORSRAMInit), (200 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_NORSRAMStructInit), (98 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_PCCARDCmd), (32 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_PCCARDDeInit), (26 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_PCCARDInit), (102 bytes).
+    Removing stm32f10x_fsmc.o(i.FSMC_PCCARDStructInit), (60 bytes).
+    Removing stm32f10x_gpio.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_gpio.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_gpio.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_AFIODeInit), (22 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ETH_MediaInterfaceConfig), (12 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_EXTILineConfig), (40 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_EventOutputCmd), (12 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_EventOutputConfig), (28 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_PinLockConfig), (16 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_PinRemapConfig), (88 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ReadInputData), (6 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ReadInputDataBit), (14 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ReadOutputData), (6 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ReadOutputDataBit), (14 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_ResetBits), (4 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_SetBits), (4 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_StructInit), (16 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_Write), (4 bytes).
+    Removing stm32f10x_gpio.o(i.GPIO_WriteBit), (10 bytes).
+    Removing stm32f10x_i2c.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_i2c.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_i2c.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_ARPCmd), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_AcknowledgeConfig), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_CalculatePEC), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_CheckEvent), (24 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_ClearFlag), (6 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_ClearITPendingBit), (6 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_Cmd), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_DMACmd), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_DMALastTransferCmd), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_DeInit), (44 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_DualAddressCmd), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_FastModeDutyCycleConfig), (22 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_GeneralCallCmd), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_GenerateSTART), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_GenerateSTOP), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_GetFlagStatus), (42 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_GetITStatus), (36 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_GetLastEvent), (14 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_GetPEC), (6 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_ITConfig), (16 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_Init), (188 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_NACKPositionConfig), (22 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_OwnAddress2Config), (16 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_PECPositionConfig), (22 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_ReadRegister), (10 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_ReceiveData), (6 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_SMBusAlertConfig), (22 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_Send7bitAddress), (16 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_SendData), (4 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_SoftwareResetCmd), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_StretchClockCmd), (20 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_StructInit), (28 bytes).
+    Removing stm32f10x_i2c.o(i.I2C_TransmitPEC), (20 bytes).
+    Removing stm32f10x_iwdg.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_iwdg.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_iwdg.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_iwdg.o(i.IWDG_Enable), (16 bytes).
+    Removing stm32f10x_iwdg.o(i.IWDG_GetFlagStatus), (20 bytes).
+    Removing stm32f10x_iwdg.o(i.IWDG_ReloadCounter), (16 bytes).
+    Removing stm32f10x_iwdg.o(i.IWDG_SetPrescaler), (12 bytes).
+    Removing stm32f10x_iwdg.o(i.IWDG_SetReload), (12 bytes).
+    Removing stm32f10x_iwdg.o(i.IWDG_WriteAccessCmd), (12 bytes).
+    Removing stm32f10x_pwr.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_pwr.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_pwr.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_pwr.o(i.PWR_BackupAccessCmd), (12 bytes).
+    Removing stm32f10x_pwr.o(i.PWR_ClearFlag), (16 bytes).
+    Removing stm32f10x_pwr.o(i.PWR_DeInit), (24 bytes).
+    Removing stm32f10x_pwr.o(i.PWR_EnterSTANDBYMode), (32 bytes).
+    Removing stm32f10x_pwr.o(i.PWR_EnterSTOPMode), (52 bytes).
+    Removing stm32f10x_pwr.o(i.PWR_GetFlagStatus), (20 bytes).
+    Removing stm32f10x_pwr.o(i.PWR_PVDCmd), (12 bytes).
+    Removing stm32f10x_pwr.o(i.PWR_PVDLevelConfig), (20 bytes).
+    Removing stm32f10x_pwr.o(i.PWR_WakeUpPinCmd), (12 bytes).
+    Removing stm32f10x_rcc.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_rcc.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_rcc.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_ADCCLKConfig), (20 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_AHBPeriphClockCmd), (24 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_AdjustHSICalibrationValue), (20 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_BackupResetCmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_ClearFlag), (16 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_ClearITPendingBit), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_ClockSecuritySystemCmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_DeInit), (64 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_GetClocksFreq), (148 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_GetFlagStatus), (48 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_GetITStatus), (20 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_GetSYSCLKSource), (16 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_HCLKConfig), (20 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_HSEConfig), (52 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_HSICmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_ITConfig), (24 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_LSEConfig), (32 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_LSICmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_MCOConfig), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_PCLK1Config), (20 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_PCLK2Config), (20 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_PLLCmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_PLLConfig), (20 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_RTCCLKCmd), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_RTCCLKConfig), (16 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_SYSCLKConfig), (20 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_USBCLKConfig), (12 bytes).
+    Removing stm32f10x_rcc.o(i.RCC_WaitForHSEStartUp), (44 bytes).
+    Removing stm32f10x_rcc.o(.data), (20 bytes).
+    Removing stm32f10x_rtc.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_rtc.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_rtc.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_ClearFlag), (16 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_ClearITPendingBit), (16 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_EnterConfigMode), (16 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_ExitConfigMode), (16 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_GetCounter), (32 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_GetDivider), (24 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_GetFlagStatus), (20 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_GetITStatus), (32 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_ITConfig), (24 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_SetAlarm), (32 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_SetCounter), (32 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_SetPrescaler), (32 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_WaitForLastTask), (16 bytes).
+    Removing stm32f10x_rtc.o(i.RTC_WaitForSynchro), (24 bytes).
+    Removing stm32f10x_sdio.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_sdio.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_sdio.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_CEATAITCmd), (16 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_ClearFlag), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_ClearITPendingBit), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_ClockCmd), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_CmdStructInit), (14 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_CommandCompletionCmd), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_DMACmd), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_DataConfig), (44 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_DataStructInit), (20 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_DeInit), (36 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_GetCommandResponse), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_GetDataCounter), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_GetFIFOCount), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_GetFlagStatus), (20 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_GetITStatus), (20 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_GetPowerState), (16 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_GetResponse), (16 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_ITConfig), (24 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_Init), (44 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_ReadData), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_SendCEATACmd), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_SendCommand), (40 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_SendSDIOSuspendCmd), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_SetPowerState), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_SetSDIOOperation), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_SetSDIOReadWaitMode), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_StartSDIOReadWait), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_StopSDIOReadWait), (12 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_StructInit), (16 bytes).
+    Removing stm32f10x_sdio.o(i.SDIO_WriteData), (12 bytes).
+    Removing stm32f10x_spi.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_spi.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_spi.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_spi.o(i.I2S_Cmd), (20 bytes).
+    Removing stm32f10x_spi.o(i.I2S_Init), (150 bytes).
+    Removing stm32f10x_spi.o(i.I2S_StructInit), (18 bytes).
+    Removing stm32f10x_spi.o(i.SPI_BiDirectionalLineConfig), (22 bytes).
+    Removing stm32f10x_spi.o(i.SPI_CalculateCRC), (20 bytes).
+    Removing stm32f10x_spi.o(i.SPI_DataSizeConfig), (16 bytes).
+    Removing stm32f10x_spi.o(i.SPI_GetCRC), (12 bytes).
+    Removing stm32f10x_spi.o(i.SPI_GetCRCPolynomial), (4 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_ClearFlag), (6 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_ClearITPendingBit), (14 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_DMACmd), (16 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_GetFlagStatus), (14 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_GetITStatus), (44 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_ITConfig), (24 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_ReceiveData), (4 bytes).
+    Removing stm32f10x_spi.o(i.SPI_I2S_SendData), (4 bytes).
+    Removing stm32f10x_spi.o(i.SPI_NSSInternalSoftwareConfig), (24 bytes).
+    Removing stm32f10x_spi.o(i.SPI_SSOutputCmd), (20 bytes).
+    Removing stm32f10x_spi.o(i.SPI_StructInit), (24 bytes).
+    Removing stm32f10x_spi.o(i.SPI_TransmitCRC), (10 bytes).
+    Removing stm32f10x_tim.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_tim.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_tim.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_tim.o(i.TI1_Config), (108 bytes).
+    Removing stm32f10x_tim.o(i.TI2_Config), (124 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ARRPreloadConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_BDTRConfig), (34 bytes).
+    Removing stm32f10x_tim.o(i.TIM_BDTRStructInit), (18 bytes).
+    Removing stm32f10x_tim.o(i.TIM_CCPreloadControl), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_CCxCmd), (22 bytes).
+    Removing stm32f10x_tim.o(i.TIM_CCxNCmd), (22 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ClearFlag), (6 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ClearOC1Ref), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ClearOC2Ref), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ClearOC3Ref), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ClearOC4Ref), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_Cmd), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_CounterModeConfig), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_CtrlPWMOutputs), (22 bytes).
+    Removing stm32f10x_tim.o(i.TIM_DMACmd), (16 bytes).
+    Removing stm32f10x_tim.o(i.TIM_DMAConfig), (8 bytes).
+    Removing stm32f10x_tim.o(i.TIM_DeInit), (368 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ETRClockMode1Config), (18 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ETRClockMode2Config), (18 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ETRConfig), (24 bytes).
+    Removing stm32f10x_tim.o(i.TIM_EncoderInterfaceConfig), (50 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ForcedOC1Config), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ForcedOC2Config), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ForcedOC3Config), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ForcedOC4Config), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_GenerateEvent), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_GetCapture1), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_GetCapture2), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_GetCapture3), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_GetCapture4), (6 bytes).
+    Removing stm32f10x_tim.o(i.TIM_GetCounter), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_GetFlagStatus), (14 bytes).
+    Removing stm32f10x_tim.o(i.TIM_GetPrescaler), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ICInit), (300 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ICStructInit), (16 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ITConfig), (16 bytes).
+    Removing stm32f10x_tim.o(i.TIM_ITRxExternalClockConfig), (18 bytes).
+    Removing stm32f10x_tim.o(i.TIM_InternalClockConfig), (10 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC1FastConfig), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC1Init), (128 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC1NPolarityConfig), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC1PolarityConfig), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC1PreloadConfig), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC2FastConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC2Init), (128 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC2NPolarityConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC2PolarityConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC2PreloadConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC3FastConfig), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC3Init), (124 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC3NPolarityConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC3PolarityConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC3PreloadConfig), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC4FastConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC4Init), (100 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC4PolarityConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OC4PreloadConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_OCStructInit), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_PWMIConfig), (108 bytes).
+    Removing stm32f10x_tim.o(i.TIM_PrescalerConfig), (6 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SelectCCDMA), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SelectCOM), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SelectHallSensor), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SelectInputTrigger), (12 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SelectMasterSlaveMode), (16 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SelectOCxM), (70 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SelectOnePulseMode), (16 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SelectOutputTrigger), (16 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SelectSlaveMode), (16 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetAutoreload), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetClockDivision), (16 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetCompare1), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetCompare2), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetCompare3), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetCompare4), (6 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetCounter), (4 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetIC1Prescaler), (16 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetIC2Prescaler), (24 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetIC3Prescaler), (16 bytes).
+    Removing stm32f10x_tim.o(i.TIM_SetIC4Prescaler), (24 bytes).
+    Removing stm32f10x_tim.o(i.TIM_TIxExternalClockConfig), (46 bytes).
+    Removing stm32f10x_tim.o(i.TIM_TimeBaseInit), (156 bytes).
+    Removing stm32f10x_tim.o(i.TIM_TimeBaseStructInit), (18 bytes).
+    Removing stm32f10x_tim.o(i.TIM_UpdateDisableConfig), (20 bytes).
+    Removing stm32f10x_tim.o(i.TIM_UpdateRequestConfig), (20 bytes).
+    Removing stm32f10x_usart.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_usart.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_usart.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_usart.o(i.USART_ClearFlag), (6 bytes).
+    Removing stm32f10x_usart.o(i.USART_ClockInit), (30 bytes).
+    Removing stm32f10x_usart.o(i.USART_ClockStructInit), (12 bytes).
+    Removing stm32f10x_usart.o(i.USART_Cmd), (20 bytes).
+    Removing stm32f10x_usart.o(i.USART_DMACmd), (16 bytes).
+    Removing stm32f10x_usart.o(i.USART_DeInit), (116 bytes).
+    Removing stm32f10x_usart.o(i.USART_GetFlagStatus), (14 bytes).
+    Removing stm32f10x_usart.o(i.USART_HalfDuplexCmd), (20 bytes).
+    Removing stm32f10x_usart.o(i.USART_Init), (172 bytes).
+    Removing stm32f10x_usart.o(i.USART_IrDACmd), (20 bytes).
+    Removing stm32f10x_usart.o(i.USART_IrDAConfig), (16 bytes).
+    Removing stm32f10x_usart.o(i.USART_LINBreakDetectLengthConfig), (16 bytes).
+    Removing stm32f10x_usart.o(i.USART_LINCmd), (20 bytes).
+    Removing stm32f10x_usart.o(i.USART_OneBitMethodCmd), (20 bytes).
+    Removing stm32f10x_usart.o(i.USART_OverSampling8Cmd), (20 bytes).
+    Removing stm32f10x_usart.o(i.USART_ReceiverWakeUpCmd), (20 bytes).
+    Removing stm32f10x_usart.o(i.USART_SendBreak), (10 bytes).
+    Removing stm32f10x_usart.o(i.USART_SetAddress), (16 bytes).
+    Removing stm32f10x_usart.o(i.USART_SetGuardTime), (16 bytes).
+    Removing stm32f10x_usart.o(i.USART_SetPrescaler), (16 bytes).
+    Removing stm32f10x_usart.o(i.USART_SmartCardCmd), (20 bytes).
+    Removing stm32f10x_usart.o(i.USART_SmartCardNACKCmd), (20 bytes).
+    Removing stm32f10x_usart.o(i.USART_StructInit), (22 bytes).
+    Removing stm32f10x_usart.o(i.USART_WakeUpConfig), (16 bytes).
+    Removing stm32f10x_wwdg.o(.rev16_text), (4 bytes).
+    Removing stm32f10x_wwdg.o(.revsh_text), (4 bytes).
+    Removing stm32f10x_wwdg.o(.rrx_text), (6 bytes).
+    Removing stm32f10x_wwdg.o(i.WWDG_ClearFlag), (12 bytes).
+    Removing stm32f10x_wwdg.o(i.WWDG_DeInit), (24 bytes).
+    Removing stm32f10x_wwdg.o(i.WWDG_Enable), (16 bytes).
+    Removing stm32f10x_wwdg.o(i.WWDG_EnableIT), (16 bytes).
+    Removing stm32f10x_wwdg.o(i.WWDG_GetFlagStatus), (12 bytes).
+    Removing stm32f10x_wwdg.o(i.WWDG_SetCounter), (16 bytes).
+    Removing stm32f10x_wwdg.o(i.WWDG_SetPrescaler), (20 bytes).
+    Removing stm32f10x_wwdg.o(i.WWDG_SetWindowValue), (28 bytes).
+    Removing system_stm32f10x.o(.rev16_text), (4 bytes).
+    Removing system_stm32f10x.o(.revsh_text), (4 bytes).
+    Removing system_stm32f10x.o(.rrx_text), (6 bytes).
+    Removing system_stm32f10x.o(i.SystemCoreClockUpdate), (104 bytes).
+    Removing system_stm32f10x.o(.data), (20 bytes).
+
+695 unused section(s) (total 22900 bytes) removed from the image.

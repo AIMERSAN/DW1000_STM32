@@ -105,6 +105,12 @@ void Dwm1000DeviceInit(void)
     dwt_setrxantennadelay(TX_ANT_DLY);
 }
 
+
+/**
+* @brief  基站答复标签任务处理
+* @param  double *dis 上一次测距的结果，
+* @retval None
+**/
 void Dwm1000Respond(double *dis)
 {
     dwt_setrxtimeout(0);
@@ -125,8 +131,9 @@ void Dwm1000Respond(double *dis)
     
         if(memcmp(rxBuffer, rxPolMlsg, ALL_MSG_COMMON_LEN) == 0)//轮询 DS TWR发起者 验证公共字节是否相同
 		{
+            /* 声明 */
 			uint32 resp_tx_time;
-			pollRxTs = get_rx_timestamp_u64();//获取接收时间
+			pollRxTs = getRxTimeStampU64();//获取接收时间
 			resp_tx_time = (pollRxTs + (POLL_RX_TO_RESP_TX_DLY_UUS * UUS_TO_DWT_TIME)) >> 8;
 			dwt_setdelayedtrxtime(resp_tx_time);//设置发送响应时间			
 			dwt_setrxaftertxdelay(RESP_TX_TO_FINAL_RX_DLY_UUS);
@@ -160,15 +167,15 @@ void Dwm1000Respond(double *dis)
 					uint32 poll_rx_ts_32, resp_tx_ts_32, final_rx_ts_32;
 					double Ra, Rb, Da, Db;
 					int64 tof_dtu;
-					respTxTs = get_tx_timestamp_u64();//获取发送响应时间
-					finalRxTs = get_rx_timestamp_u64();//获取最后接收时间					
-					final_msg_get_ts(&rxBuffer[FINAL_MSG_POLL_TX_TS_IDX], &poll_tx_ts);//获取最后时间戳
-					final_msg_get_ts(&rxBuffer[FINAL_MSG_RESP_RX_TS_IDX], &resp_rx_ts);
-					final_msg_get_ts(&rxBuffer[FINAL_MSG_FINAL_TX_TS_IDX], &final_tx_ts);			
+					respTxTs = getRxTimeStampU64();//获取发送响应时间
+					finalRxTs = getRxTimeStampU64();//获取最后接收时间					
+					finalMsgGetTs(&rxBuffer[FINAL_MSG_POLL_TX_TS_IDX], &poll_tx_ts);//获取最后时间戳
+					finalMsgGetTs(&rxBuffer[FINAL_MSG_RESP_RX_TS_IDX], &resp_rx_ts);
+					finalMsgGetTs(&rxBuffer[FINAL_MSG_FINAL_TX_TS_IDX], &final_tx_ts);			
 					poll_rx_ts_32 = (uint32)pollRxTs;//计算飞行时间
 					resp_tx_ts_32 = (uint32)respTxTs;
 					final_rx_ts_32 = (uint32)finalRxTs;
-					Ra = (double)(resp_rx_ts - poll_tx_ts);
+					Ra = (double)(resp_rx_ts - poll_tx_ts); 
 					Rb = (double)(final_rx_ts_32 - resp_tx_ts_32);
 					Da = (double)(final_tx_ts - resp_rx_ts);
 					Db = (double)(resp_tx_ts_32 - poll_rx_ts_32);
@@ -179,7 +186,6 @@ void Dwm1000Respond(double *dis)
 			}
 			else dwt_write32bitreg(SYS_STATUS_ID, SYS_STATUS_ALL_RX_ERR);//否则清除RX错误事件	          		
 		}
-	}
+    }
 	else dwt_write32bitreg(SYS_STATUS_ID, SYS_STATUS_ALL_RX_ERR);//否则清除RX错误事件		
-
 }

@@ -75,9 +75,9 @@ int32_t rbCanWrite(rb_t *rb)//返回能写入的空间
 }
 
 /*
-  rb--要读的环形链表
-  data--读出的数据
-  count--读的个数
+    rb--要读的环形链表
+    data--读出的数据
+    count--读的个数
 */
 int32_t rbRead(rb_t *rb, void *data, uint32_t count)
 {

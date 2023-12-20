@@ -16,6 +16,7 @@
 #include <string.h>
 
 #include "stm32f10x.h"
+#include "app_mcu.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -31,11 +32,14 @@
   */
 int main(void)
 {
-
+    
+	DeviceInit();
+	
     /* Infinite loop */
     while (1)
-    {
-        
+	{
+        Dwm1000Respond();
+		
     }
 }
 

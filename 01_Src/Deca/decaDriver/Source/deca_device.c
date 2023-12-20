@@ -15,6 +15,9 @@
 #include "deca_regs.h"
 #include "deca_device_api.h"
 #include "deca_sleep.h"
+#include "deca_spi.h"
+
+#include "bsp_DWM1000.h"
 // #include "port.h"
 
 // Defines for enable_clocks function
@@ -950,9 +953,10 @@ int dwt_writetodevice
             header[cnt++] =  (uint8) (index >> 7) ; // 8-bit value = high eight bits of index.
         }
     }
-
     // Write it to the SPI
-    return writetospi(cnt,header,length,buffer);
+    //return writetospi(cnt,header,length,buffer);
+    return (writetospi(DWM1000_SPI, DWM1000_SPI_CS_PORT, DWM1000_SPI_CS_PIN, 
+                        cnt, header, length, buffer));
 
 } // end dwt_writetodevice()
 
@@ -1027,7 +1031,8 @@ int dwt_readfromdevice
     }
 
     // Do the read from the SPI
-    return readfromspi(cnt, header, length, buffer);  // result is stored in the buffer
+    return readfromspi(DWM1000_SPI, DWM1000_SPI_CS_PORT, DWM1000_SPI_CS_PIN,
+                         cnt, header, length, buffer);  // result is stored in the buffer
 
 } // end dwt_readfromdevice()
 

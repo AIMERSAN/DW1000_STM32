@@ -12,7 +12,7 @@
 
 #include "bsp_Bee.h"
 
-void BeeInitConfig(void)
+void BeeGpioInit(void)
 {
     gpioHandle_t beeGpioHandle;
     

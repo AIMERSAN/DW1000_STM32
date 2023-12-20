@@ -10,11 +10,23 @@
   ******************************************************************* ***********
   */
 
+#include <stdint.h>
+
 #include "bsp_DWM1000.h"
+
+#include "stm32f10x.h"
+
+#include "drv_Spi.h"
+#include "drv_Gpio.h"
+#include "drv_Mcu.h"
+
+#include "deca_spi.h"
+#include "deca_sleep.h"
+#include "deca_device_api.h"
 
 extern __IO unsigned long time32Incr;
 
-spiHandleConfig_t* spiHandleConfig;
+spiHandleConfig_t spiHandleConfig;
 
 void Dwm1000SpiInit(void)
 {
@@ -59,18 +71,18 @@ void Dwm1000Reset(void)
 
 }
 
-void Dwm1000RSTnIrqConfig(enable)
+void Dwm1000RSTnIrqConfig(int enable)
 {
     EXTI_InitTypeDef extiInitStructure;
     NVIC_InitTypeDef nvicInitSturucture;
-    gpioHandle_t* gpioConfigHandle;
+    gpioHandle_t     gpioConfigHandle;
     
     if(enable)    
     {
-        gpioConfigHandle->pGPIOx = DWM1000_RSTIRQ_EXTI_PORT;
-        gpioConfigHandle->gpioPinConfig.gpioPin = DWM1000_RSTIRQ_EXTI_PIN;
-        gpioConfigHandle->gpioPinConfig.gpioPortMode = GPIO_Mode_IN_FLOATING;
-        gpioConfigHandle->gpioPinConfig.gpioPortSpeed = GPIO_Speed_50MHz;
+        gpioConfigHandle.pGPIOx = DWM1000_RSTIRQ_EXTI_PORT;
+        gpioConfigHandle.gpioPinConfig.gpioPin = DWM1000_RSTIRQ_EXTI_PIN;
+        gpioConfigHandle.gpioPinConfig.gpioPortMode = GPIO_Mode_IN_FLOATING;
+        gpioConfigHandle.gpioPinConfig.gpioPortSpeed = GPIO_Speed_50MHz;
         GpioConfigInit(DWM1000_IRQ_EXTI_PORT, &gpioConfigHandle);
         GPIO_EXTILineConfig(DWM1000_RSTIRQ_EXTI_PORT, DWM1000_RSTIRQ_EXTI_PIN);
 
@@ -91,9 +103,9 @@ void Dwm1000RSTnIrqConfig(enable)
     }
     else
     {   
-        gpioConfigHandle->gpioPinConfig.gpioPin = DWM1000_RST_PIN;
-        gpioConfigHandle->gpioPinConfig.gpioPortMode = GPIO_Mode_AIN;
-        gpioConfigHandle->gpioPinConfig.gpioPortSpeed = GPIO_Speed_50MHz;
+        gpioConfigHandle.gpioPinConfig.gpioPin = DWM1000_RST_PIN;
+        gpioConfigHandle.gpioPinConfig.gpioPortMode = GPIO_Mode_AIN;
+        gpioConfigHandle.gpioPinConfig.gpioPortSpeed = GPIO_Speed_50MHz;
         GpioConfigInit(DWM1000_RST_PORT, &gpioConfigHandle);
 
         extiInitStructure.EXTI_Line = DWM1000_RSTIRQ_EXTI;
@@ -118,8 +130,6 @@ void Dwm1000SetBaudRate(uint16_t scalingFactor)
     // tmpReg |= scalingFactor;
     // spiHandleConfig.pSPIx->CR1 = tmpReg; 
 }
-
-
 
 unsigned long getTickCount(void)
 {

@@ -9,10 +9,12 @@
   * @attention
   ******************************************************************************
   */
-
-#include "drv_Mcu.h"
 #include <stdlib.h>
 #include <stdio.h>
+
+
+#include "drv_Mcu.h"
+#include "stm32f10x.h"
 
 static uint8_t  fac_us=0;
 static uint16_t fac_ms=0;
@@ -106,4 +108,29 @@ void delay_ms(u16 nms)
     SysTick->VAL =0X00;
 }
 
+/**
+  * @brief  Checks whether the specified EXTI line is enabled or not.
+  * @param  EXTI_Line: specifies the EXTI line to check.
+  *   This parameter can be:
+  *     @arg EXTI_Linex: External interrupt line x where x(0..19)
+  * @retval The "enable" state of EXTI_Line (SET or RESET).
+  */
+ITStatus EXTIGetITEnStatus(uint32_t EXTI_Line)
+{
+    ITStatus bitstatus = RESET;
+    uint32_t enablestatus = 0;
+    /* Check the parameters */
+    assert_param(IS_GET_EXTI_LINE(EXTI_Line));
+
+    enablestatus =  EXTI->IMR & EXTI_Line;
+    if (enablestatus != (uint32_t)RESET)
+    {
+        bitstatus = SET;
+    }
+    else
+    {
+        bitstatus = RESET;
+    }
+    return bitstatus;
+}
 

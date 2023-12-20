@@ -1,11 +1,7 @@
 #ifndef __BSP_DWM1000_H_
 #define __BSP_DWM1000_H_
 
-#include "drv_Spi.h"
-#include "drv_Gpio.h"
-#include "deca_spi.h"
-#include "deca_sleep.h"
-#include "deca_device_api.h"
+#include <stdint.h>
 
 /* DWM1000模块接口定义 */
 #define DWM1000_SPI             SPI1
@@ -46,14 +42,17 @@
 #define DWM1000_IRQ_EXTI_USEIRQ     ENABLE
 #define DWM1000_IRQ_EXTI_NOIRQ      DISABLE
 
+#define DWM1000_GetEXT_IRQStatus EXTIGetITEnStatus(DWM1000_IRQ_EXTI_IRQn);
+#define DWM1000_DisableEXT_IRQ   
+#define 
 /* DWM1000 硬件SPI配置 */
-spiHandleConfig_t spiHandleConfig;
+
+//spiHandleConfig_t spiHandleConfig;
 
 void Dwm1000SpiInit(void);
 void Dwm1000Reset(void);
 void Dwm1000RSTnIrqConfig(enable);
 void Dwm1000SetBaudRate(uint16_t scalingFactor);
 unsigned long getTickCount(void);
-
 
 #endif

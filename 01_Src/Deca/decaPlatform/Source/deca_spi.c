@@ -96,7 +96,6 @@ int writetospi_serial
     const uint8_t *bodyBuffer
 )
 {
-    spiHandleConfig_t spiHandleConfig;
     int i = 0;
 
     decaIrqStatus_t stat;
@@ -155,7 +154,6 @@ int readfromspi_serial
     uint8_t       *readBuffer
 )
 {
-
     int i=0;
 
     decaIrqStatus_t  stat ;

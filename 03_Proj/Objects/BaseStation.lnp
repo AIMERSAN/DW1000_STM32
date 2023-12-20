@@ -1,6 +1,8 @@
 --cpu Cortex-M3
 ".\objects\app_main.o"
 ".\objects\app_stm32f10x_it.o"
+".\objects\app_dwm1000.o"
+".\objects\app_mcu.o"
 ".\objects\bsp_bee.o"
 ".\objects\bsp_dwm1000.o"
 ".\objects\bsp_led.o"
