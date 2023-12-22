@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    drv_Gpio.c
+  * @file    drv_Mcu.c
   * @author  YH
   * @version V1.0
   * @date    2023 
@@ -9,12 +9,7 @@
   * @attention
   ******************************************************************************
   */
-#include <stdlib.h>
-#include <stdio.h>
-
-
 #include "drv_Mcu.h"
-#include "stm32f10x.h"
 
 static uint8_t  fac_us=0;
 static uint16_t fac_ms=0;
@@ -31,11 +26,6 @@ uint32_t idAddr[]= {
     0x1FFF7590,/*STM32L4唯一ID起始地址*/
     0x1FF0F420 /*STM32H7唯一ID起始地址*/
 };
-
-void NVIC_Configuration(void)
-{
-    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);	//设置NVIC中断分组2:2位抢占优先级，2位响应优先级
-}
 
 /*复位芯片*/
 void Reset_MCU(void)
@@ -58,15 +48,15 @@ void GetSTM32MCUID(uint32_t *MCUID,char AddrID)
 }
 
 /**
-  * @brief  系统滴答定时器延时初始化
+  * @brief  系统滴答定时器延时功能用初始化
   * @param  None
   * @retval None
   */
-void Delay_Init(void)
+void SysTickDelayInit(void)
 {
     SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
-    fac_us=SystemCoreClock/8000000;
-    fac_ms=(u16)fac_us*1000;
+    fac_us = SystemCoreClock / 8000000;
+    fac_ms = (uint16_t)fac_us * 1000;
 }
 
 
@@ -94,7 +84,7 @@ void delay_us(uint32_t nus)
   * @param  uint32_t nms
   * @retval None
   */
-void delay_ms(u16 nms)
+void delay_ms(uint16_t nms)
 {
     u32 temp;
     SysTick->LOAD=(u32)nms*fac_ms;
@@ -106,6 +96,23 @@ void delay_ms(u16 nms)
     } while((temp&0x01)&&!(temp&(1<<16)));
     SysTick->CTRL&=~SysTick_CTRL_ENABLE_Msk;
     SysTick->VAL =0X00;
+}
+
+/**
+  * @brief  SysTick 中断配置函数
+  * @param  None
+  * @retval None
+  */
+uint16_t SysTickHandlerConfig(void)
+{
+    if(SysTick_Config(SystemCoreClock / CLOCKS_PER_SEC))
+    {
+        /* Capture error */
+        while(1);
+    }
+    NVIC_SetPriority(SysTick_IRQn, 5);
+
+    return 0;
 }
 
 /**
@@ -133,4 +140,3 @@ ITStatus EXTIGetITEnStatus(uint32_t EXTI_Line)
     }
     return bitstatus;
 }
-

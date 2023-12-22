@@ -12,45 +12,45 @@
 
 #include "drv_Gpio.h"
 
-
 void GpioPeripheralClockConfig(GPIO_TypeDef *pGPIOx, FunctionalState clockState)
 {
-
-    switch((uint16_t)pGPIOx)
+    if(pGPIOx == GPIOA)
     {
-        case (uint16_t)GPIOA:
-            RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, clockState);
-            break;
-        case (uint16_t)GPIOB:
-            RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, clockState);
-            break;
-        case (uint16_t)GPIOC:
-            RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, clockState);
-            break;
-        case (uint16_t)GPIOD:
-            RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, clockState);
-            break;
-        case (uint16_t)GPIOE:
-            RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE, clockState);
-            break;
-        case (uint16_t)GPIOF:
-            RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF, clockState);
-            break;
-        case (uint16_t)GPIOG:
-            RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOG, clockState);
-            break;
-        default:
-            break;
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, clockState);
+    } 
+    else if (pGPIOx == GPIOB)
+    {
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, clockState);
+    }
+    else if (pGPIOx == GPIOC)
+    {
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, clockState);
+    }
+    else if (pGPIOx == GPIOD)
+    {
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, clockState);
+    }
+    else if (pGPIOx == GPIOE)
+    {
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE, clockState);
+    }
+    else if (pGPIOx == GPIOF)
+    {
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF, clockState);
+    }
+    else if (pGPIOx == GPIOG)
+    {
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOG, clockState);
     }
 }
 
-void GpioConfigInit(GPIO_TypeDef* pGPIOx, gpioHandle_t* pGpioHandle)
+void GpioConfigInit(GPIO_TypeDef* pGPIOx, gpioHandle_t pGpioHandle)
 {
     GPIO_InitTypeDef gpioInitstructure;
 
-    gpioInitstructure.GPIO_Mode = pGpioHandle->gpioPinConfig.gpioPortMode;
-    gpioInitstructure.GPIO_Speed = pGpioHandle->gpioPinConfig.gpioPortSpeed;
-    gpioInitstructure.GPIO_Pin = pGpioHandle->gpioPinConfig.gpioPin;
+    gpioInitstructure.GPIO_Mode = pGpioHandle.gpioPinConfig.gpioPortMode;
+    gpioInitstructure.GPIO_Speed = pGpioHandle.gpioPinConfig.gpioPortSpeed;
+    gpioInitstructure.GPIO_Pin = pGpioHandle.gpioPinConfig.gpioPin;
 
     GPIO_Init(pGPIOx, &gpioInitstructure);
 }

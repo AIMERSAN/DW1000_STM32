@@ -37,4 +37,6 @@
 .\objects\deca_device.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\deca_device.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\deca_device.o: ..\01_Src\Deca\decaPlatform\Include\deca_sleep.h
+.\objects\deca_device.o: ..\01_Src\Deca\decaPlatform\Include\deca_spi.h
+.\objects\deca_device.o: ..\01_Src\Drv\Include\drv_Spi.h
 .\objects\deca_device.o: ..\01_Src\BSP\Include\bsp_DWM1000.h

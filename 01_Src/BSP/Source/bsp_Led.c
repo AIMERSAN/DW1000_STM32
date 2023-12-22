@@ -14,7 +14,7 @@
 #include "drv_Rcc.h"
 #include "drv_Gpio.h"
 
-void LedGpioInit()
+void LedGpioInit(void)
 {
     
 

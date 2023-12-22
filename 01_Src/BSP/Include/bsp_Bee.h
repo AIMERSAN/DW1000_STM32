@@ -10,7 +10,7 @@
 #define A2_GPIO_PIN  GPIO_Pin_2
 
 
-void BeeInitConfig(void);
+void BeeGpioInit(void);
 void BeeClose(void);
 void BeeOpen(void);
 

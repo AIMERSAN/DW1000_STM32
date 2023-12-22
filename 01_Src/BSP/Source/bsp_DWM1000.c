@@ -67,8 +67,6 @@ void Dwm1000Reset(void)
     GpioWriteToOutputPin(DWM1000_RST_PORT, DWM1000_RST_PIN, RESET);
 
     SpiGpioInit(DWM1000_RST_PORT, DWM1000_RST_PIN, GPIO_Mode_AIN, GPIO_Speed_50MHz);
-
-
 }
 
 void Dwm1000RSTnIrqConfig(int enable)
@@ -79,11 +77,11 @@ void Dwm1000RSTnIrqConfig(int enable)
     
     if(enable)    
     {
-        gpioConfigHandle.pGPIOx = DWM1000_RSTIRQ_EXTI_PORT;
-        gpioConfigHandle.gpioPinConfig.gpioPin = DWM1000_RSTIRQ_EXTI_PIN;
+        gpioConfigHandle.pGPIOx = DWM1000_IRQ_PORT;
+        gpioConfigHandle.gpioPinConfig.gpioPin = DWM1000_IRQ_PIN;
         gpioConfigHandle.gpioPinConfig.gpioPortMode = GPIO_Mode_IN_FLOATING;
         gpioConfigHandle.gpioPinConfig.gpioPortSpeed = GPIO_Speed_50MHz;
-        GpioConfigInit(DWM1000_IRQ_EXTI_PORT, &gpioConfigHandle);
+        GpioConfigInit(DWM1000_IRQ_PORT, gpioConfigHandle);
         GPIO_EXTILineConfig(DWM1000_RSTIRQ_EXTI_PORT, DWM1000_RSTIRQ_EXTI_PIN);
 
         extiInitStructure.EXTI_Line = DWM1000_RSTIRQ_EXTI;
@@ -106,7 +104,7 @@ void Dwm1000RSTnIrqConfig(int enable)
         gpioConfigHandle.gpioPinConfig.gpioPin = DWM1000_RST_PIN;
         gpioConfigHandle.gpioPinConfig.gpioPortMode = GPIO_Mode_AIN;
         gpioConfigHandle.gpioPinConfig.gpioPortSpeed = GPIO_Speed_50MHz;
-        GpioConfigInit(DWM1000_RST_PORT, &gpioConfigHandle);
+        GpioConfigInit(DWM1000_RST_PORT, gpioConfigHandle);
 
         extiInitStructure.EXTI_Line = DWM1000_RSTIRQ_EXTI;
         extiInitStructure.EXTI_LineCmd = ENABLE;
@@ -114,6 +112,41 @@ void Dwm1000RSTnIrqConfig(int enable)
         extiInitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
         EXTI_Init(&extiInitStructure);
     }
+}
+
+uint16_t DWM1000IrqConfig(void)
+{
+    GPIO_InitTypeDef GPIO_InitStructure;
+    EXTI_InitTypeDef EXTI_InitStructure;
+    NVIC_InitTypeDef NVIC_InitStructure;
+
+    // Enable GPIO used as DWM1000 IRQ for interrupt
+    GPIO_InitStructure.GPIO_Pin = DWM1000_IRQ_PIN;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;	//IRQ pin should be Pull Down to prevent unnecessary EXT IRQ while DW1000 goes to sleep mode
+    GPIO_Init(DWM1000_IRQ_PORT, &GPIO_InitStructure);
+
+    /* Connect EXTI Line to GPIO Pin */
+    GPIO_EXTILineConfig(DWM1000_IRQ_EXTI_PORT, DWM1000_IRQ_EXTI_PIN);
+
+    /* Configure EXTI line */
+    EXTI_InitStructure.EXTI_Line = DWM1000_IRQ_EXTI;
+    EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;	//MPW3 IRQ polarity is high by default
+    EXTI_InitStructure.EXTI_LineCmd = DWM1000_IRQ_EXTI_USEIRQ;
+    EXTI_Init(&EXTI_InitStructure);
+
+    /* Set NVIC Grouping to 16 groups of interrupt without sub-grouping */
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+
+    /* Enable and set EXTI Interrupt to the lowest priority */
+    NVIC_InitStructure.NVIC_IRQChannel = DWM1000_IRQ_EXTI_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 15;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = DWM1000_IRQ_EXTI_USEIRQ;
+
+    NVIC_Init(&NVIC_InitStructure);
+
+    return 0;
 }
 
 void Dwm1000SetBaudRate(uint16_t scalingFactor)
@@ -131,6 +164,11 @@ void Dwm1000SetBaudRate(uint16_t scalingFactor)
     // spiHandleConfig.pSPIx->CR1 = tmpReg; 
 }
 
+/**
+  * @brief  获取tick
+  * @param  uint32_t nms
+  * @retval None
+  */
 unsigned long getTickCount(void)
 {
 	return time32Incr;

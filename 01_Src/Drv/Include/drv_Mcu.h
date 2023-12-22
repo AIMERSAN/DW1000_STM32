@@ -1,6 +1,21 @@
-#ifndef __MCU_H
-#define __MCU_H
+/**
+  ******************************************************************************
+  * @file    drv_Gpio.c
+  * @author  YH
+  * @version V1.0
+  * @date    2023 
+  * @brief   MCU Driver head File
+  ******************************************************************************
+  * @attention
+  ******************************************************************************
+  */
 
+#ifndef __MCU_H_
+#define __MCU_H_
+
+#include <stdlib.h>
+#include <stdio.h>
+#include "stm32f10x.h"
 
 #define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
@@ -46,6 +61,9 @@
 #define PGout(n)   BIT_ADDR(GPIOG_ODR_Addr,n)  //输出 
 #define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)  //输入
 
+/* Define our wanted value of CLOCKS_PER_SEC so that we have a millisecond tick timer. */
+#undef CLOCKS_PER_SEC
+#define CLOCKS_PER_SEC 1000
 
 void NVIC_Configuration(void);
 
@@ -59,9 +77,10 @@ void Reset_MCU(void);
 /*获取MCU唯一ID*/
 void GetSTM32MCUID(uint32_t *MCUID,char AddrID);
 
-void Delay_Init(void);
+void SysTickDelayInit(void);
 void delay_us(uint32_t nus);
-void delay_ms(u16 nms);
+void delay_ms(uint16_t nms);
+uint16_t SysTickHandlerConfig(void);
 ITStatus EXTIGetITEnStatus(uint32_t EXTI_Line);
 
 #endif

@@ -34,6 +34,9 @@
 .\objects\bsp_dwm1000.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\bsp_dwm1000.o: ..\01_Src\Drv\Include\drv_Spi.h
 .\objects\bsp_dwm1000.o: ..\01_Src\Drv\Include\drv_Gpio.h
+.\objects\bsp_dwm1000.o: ..\01_Src\Drv\Include\drv_Mcu.h
+.\objects\bsp_dwm1000.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdlib.h
+.\objects\bsp_dwm1000.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdio.h
 .\objects\bsp_dwm1000.o: ..\01_Src\Deca\decaPlatform\Include\deca_spi.h
 .\objects\bsp_dwm1000.o: ..\01_Src\Deca\decaDriver\Include\deca_types.h
 .\objects\bsp_dwm1000.o: ..\01_Src\Deca\decaPlatform\Include\deca_sleep.h

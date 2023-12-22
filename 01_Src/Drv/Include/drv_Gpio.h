@@ -79,7 +79,7 @@ typedef struct
 
 
 void GpioPeripheralClockConfig(GPIO_TypeDef *pGPIOx, FunctionalState clockState);
-void GpioConfigInit(GPIO_TypeDef* pGPIOx, gpioHandle_t* pGpioHandle);
+void GpioConfigInit(GPIO_TypeDef* pGPIOx, gpioHandle_t pGpioHandle);
 void GpioWriteToOutputPin(GPIO_TypeDef* pGPIOx, uint16_t gpioPin, uint8_t pinState);
 void GpioWriteToOutputPort(GPIO_TypeDef* pGPIOx, uint8_t portStateValue);
 

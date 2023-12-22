@@ -13,5 +13,6 @@
 #ifndef __APP_MCU_H_
 #define __APP_MCU_H_
 
+void BspInit(void);
 void DeviceInit(void);
 #endif

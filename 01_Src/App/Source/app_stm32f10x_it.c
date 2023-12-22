@@ -46,9 +46,9 @@ volatile unsigned long time32Incr;
   * @param  None
   * @retval None
   */
-//void NMI_Handler(void)
-//{
-//}
+void NMI_Handler(void)
+{
+}
 
 /**
   * @brief  This function handles Hard Fault exception.
@@ -125,9 +125,9 @@ void DebugMon_Handler(void)
   * @param  None
   * @retval None
   */
-//void PendSV_Handler(void)
-//{
-//}
+void PendSV_Handler(void)
+{
+}
 
 /**
   * @brief  This function handles SysTick Handler.
@@ -136,6 +136,7 @@ void DebugMon_Handler(void)
   */
 void SysTick_Handler(void)
 {
+    time32Incr++;
 }
 
 /******************************************************************************/

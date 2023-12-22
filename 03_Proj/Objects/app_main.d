@@ -35,3 +35,7 @@
 .\objects\app_main.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\app_main.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\app_main.o: ..\01_Src\App\Include\app_mcu.h
+.\objects\app_main.o: ..\01_Src\App\Include\app_dwm1000.h
+.\objects\app_main.o: ..\01_Src\Drv\Include\drv_Spi.h
+.\objects\app_main.o: ..\01_Src\BSP\Include\bsp_DWM1000.h
+.\objects\app_main.o: ..\01_Src\Drv\Include\drv_Mcu.h

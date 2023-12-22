@@ -17,80 +17,23 @@ Library Manager: ArmAr.exe V5.06 update 7 (build 960)
 Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
 CPU DLL:         SARMCM3.DLL V5.38.0.0
 Dialog DLL:      DARMSTM.DLL V1.69.1.0
-Target DLL:      UL2CM3.DLL V1.164.8.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
 Dialog DLL:      TARMSTM.DLL V1.67.1.0
  
 <h2>Project:</h2>
 D:\WorkSpace\(UWB)轨道车作业安全主动警示系统\Firmware\BaseStation\03_Proj\BaseStation.uvprojx
-Project File Date:  12/18/2023
+Project File Date:  12/21/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'E:\Keil5\ARM\ARM_Complier_5.06u7\Bin'
 Build target 'BaseStation'
-compiling deca_sleep.c...
-..\01_Src\BSP\Include\bsp_DWM1000.h(51): warning:  #92-D: identifier-list parameters may only be used in a function definition
-  void Dwm1000RSTnIrqConfig(enable);
-..\01_Src\Deca\decaPlatform\Source\deca_sleep.c: 1 warning, 0 errors
-compiling app_mcu.c...
-..\01_Src\BSP\Include\bsp_DWM1000.h(51): warning:  #92-D: identifier-list parameters may only be used in a function definition
-  void Dwm1000RSTnIrqConfig(enable);
-..\01_Src\BSP\Include\bsp_Led.h(10): warning:  #1295-D: Deprecated declaration LedGpioInit - give arg types
-  void LedGpioInit();
-..\01_Src\App\Source\app_mcu.c(30): warning:  #223-D: function "BeeGpioInit" declared implicitly
-      BeeGpioInit();
-..\01_Src\App\Source\app_mcu.c: 3 warnings, 0 errors
-compiling deca_spi.c...
-..\01_Src\Deca\decaPlatform\Source\deca_spi.c(87): warning:  #2803-D: unrecognized GCC pragma
-  #pragma GCC optimize ("O3")
-..\01_Src\Deca\decaPlatform\Source\deca_spi.c(145): warning:  #2803-D: unrecognized GCC pragma
-  #pragma GCC optimize ("O3")
-..\01_Src\Deca\decaPlatform\Source\deca_spi.c(167): warning:  #513-D: a value of type "GPIO_TypeDef *" cannot be assigned to an entity of type "uint32_t"
-      SPIx_CS_GPIO->BRR = SPIx_CS_GPIO;
-..\01_Src\Deca\decaPlatform\Source\deca_spi.c: 3 warnings, 0 errors
-compiling bsp_DWM1000.c...
-..\01_Src\BSP\Include\bsp_DWM1000.h(51): warning:  #92-D: identifier-list parameters may only be used in a function definition
-  void Dwm1000RSTnIrqConfig(enable);
-..\01_Src\BSP\Source\bsp_DWM1000.c(72): warning:  #1294-D: Old-style function Dwm1000RSTnIrqConfig
-  void Dwm1000RSTnIrqConfig(enable)
-..\01_Src\BSP\Source\bsp_DWM1000.c(72): warning:  #1079-D: standard requires that parameter "enable"  be given a type by a subsequent declaration ("int" assumed)
-  void Dwm1000RSTnIrqConfig(enable)
-..\01_Src\BSP\Source\bsp_DWM1000.c(84): warning:  #167-D: argument of type "uint8_t" is incompatible with parameter of type "GPIO_TypeDef *"
-          GpioConfigInit(DWM1000_IRQ_EXTI_PORT, &gpioConfigHandle);
-..\01_Src\BSP\Source\bsp_DWM1000.c(84): warning:  #152-D: conversion of nonzero integer to pointer
-          GpioConfigInit(DWM1000_IRQ_EXTI_PORT, &gpioConfigHandle);
-..\01_Src\BSP\Source\bsp_DWM1000.c: 5 warnings, 0 errors
-compiling app_dwm1000.c...
-..\01_Src\BSP\Include\bsp_DWM1000.h(51): warning:  #92-D: identifier-list parameters may only be used in a function definition
-  void Dwm1000RSTnIrqConfig(enable);
-..\01_Src\App\Source\app_dwm1000.c(87): warning:  #223-D: function "deca_sleep" declared implicitly
-      deca_sleep(10);
-..\01_Src\App\Source\app_dwm1000.c(132): warning:  #223-D: function "memcmp" declared implicitly
-          if(memcmp(rxBuffer, rxPolMlsg, ALL_MSG_COMMON_LEN) == 0)//杞 DS TWR鍙戣捣鑰? 楠岃瘉鍏叡瀛楄妭鏄惁鐩稿悓
-..\01_Src\App\Source\app_dwm1000.c(59): warning:  #177-D: function "getTxTimeStampU64"  was declared but never referenced
-  static uint64 getTxTimeStampU64(void)
-..\01_Src\App\Source\app_dwm1000.c: 4 warnings, 0 errors
-compiling deca_device.c...
-..\01_Src\BSP\Include\bsp_DWM1000.h(51): warning:  #92-D: identifier-list parameters may only be used in a function definition
-  void Dwm1000RSTnIrqConfig(enable);
-..\01_Src\Deca\decaDriver\Source\deca_device.c(1055): warning:  #68-D: integer conversion resulted in a change of sign
-      uint32  regval = DWT_ERROR ;
-..\01_Src\Deca\decaDriver\Source\deca_device.c(1087): warning:  #68-D: integer conversion resulted in a change of sign
-      uint16  regval = DWT_ERROR ;
-..\01_Src\Deca\decaDriver\Source\deca_device.c(1401): warning:  #68-D: integer conversion resulted in a change of sign
-          return DWT_ERROR;
-..\01_Src\Deca\decaDriver\Source\deca_device.c(1535): warning:  #68-D: integer conversion resulted in a change of sign
-          return DWT_ERROR;
-..\01_Src\Deca\decaDriver\Source\deca_device.c: 5 warnings, 0 errors
+compiling app_main.c...
+..\01_Src\App\Source\app_main.c(52): warning:  #181-D: argument is incompatible with corresponding format string conversion
+          printf("the distance is %d\n", (float)distance);
+..\01_Src\App\Source\app_main.c: 1 warning, 0 errors
 linking...
-.\Objects\BaseStation.axf: Error: L6218E: Undefined symbol readfromspi (referred from deca_device.o).
-.\Objects\BaseStation.axf: Error: L6218E: Undefined symbol writetospi (referred from deca_device.o).
-.\Objects\BaseStation.axf: Error: L6218E: Undefined symbol port_DisableEXT_IRQ (referred from deca_mutex.o).
-.\Objects\BaseStation.axf: Error: L6218E: Undefined symbol port_EnableEXT_IRQ (referred from deca_mutex.o).
-.\Objects\BaseStation.axf: Error: L6218E: Undefined symbol port_GetEXT_IRQStatus (referred from deca_mutex.o).
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 5 error messages.
-".\Objects\BaseStation.axf" - 5 Error(s), 21 Warning(s).
+Program Size: Code=3608 RO-data=336 RW-data=112 ZI-data=3104  
+".\Objects\BaseStation.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -103,8 +46,7 @@ Package Vendor: Keil
   E:/Arm-Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

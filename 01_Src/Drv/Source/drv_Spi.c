@@ -39,7 +39,7 @@ void SpiGpioInit(GPIO_TypeDef* spiDevicePort,uint16_t spiDevicePin,
     spiGpioConfig.gpioPinConfig.gpioPortMode  = spiDevicePin;
     spiGpioConfig.gpioPinConfig.gpioPortSpeed = spiDevicePortSpeed;
     
-    GpioConfigInit(spiDevicePort, &spiGpioConfig);
+    GpioConfigInit(spiDevicePort, spiGpioConfig);
 }
 
 void SpiParamInit(spiHandleConfig_t *pSpiHandle)

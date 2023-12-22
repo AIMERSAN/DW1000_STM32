@@ -18,6 +18,9 @@
 typedef signed long long int64;
 typedef unsigned long long uint64;
 
+/* 定义信道标号 */
+#define MODULE_CHANNEL            5
+
 #define TX_ANT_DLY                16436
 #define RX_ANT_DLY                16436
 #define RX_BUF_LEN                24

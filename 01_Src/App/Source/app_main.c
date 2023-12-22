@@ -17,11 +17,18 @@
 
 #include "stm32f10x.h"
 #include "app_mcu.h"
+#include "app_dwm1000.h"
+#include "bsp_DWM1000.h"
+#include "drv_Mcu.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+
+/* 测距距离 */
+double distance;
+
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
@@ -32,14 +39,17 @@
   */
 int main(void)
 {
-    
-	DeviceInit();
-	
+    BspInit();
+    DeviceInit();
+
     /* Infinite loop */
     while (1)
-	{
-        Dwm1000Respond();
-		
+    {
+        //Dwm1000Respond(&distance);
+        
+        delay_ms(1000);
+        
+        printf("the distance is %d\n", (float)distance);
     }
 }
 

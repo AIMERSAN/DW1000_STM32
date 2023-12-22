@@ -38,3 +38,10 @@
 .\objects\app_mcu.o: ..\01_Src\BSP\Include\bsp_Bee.h
 .\objects\app_mcu.o: ..\01_Src\Drv\Include\drv_gpio.h
 .\objects\app_mcu.o: ..\01_Src\BSP\Include\bsp_Led.h
+.\objects\app_mcu.o: ..\01_Src\Drv\Include\drv_Uart.h
+.\objects\app_mcu.o: ..\01_Src\Com\Include\Com_BufferManage.h
+.\objects\app_mcu.o: ..\01_Src\Com\Include\com_LoopList.h
+.\objects\app_mcu.o: ..\01_Src\Drv\Include\drv_Timer.h
+.\objects\app_mcu.o: ..\01_Src\Drv\Include\drv_Mcu.h
+.\objects\app_mcu.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdlib.h
+.\objects\app_mcu.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\stdio.h

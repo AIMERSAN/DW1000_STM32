@@ -17,14 +17,19 @@
 #include "bsp_Bee.h"
 #include "bsp_Led.h"
 
-void Init(void)
+#include "drv_Uart.h"
+#include "drv_Timer.h"
+#include "drv_Mcu.h"
+
+void BspInit(void)
 {   
-    
+    SysTickDelayInit();
+    SysTickHandlerConfig();
+    Uart_Init(9600);
 }
 
 void DeviceInit(void)
 {
-    Dwm1000SpiInit();
     Dwm1000DeviceInit();
     LedGpioInit();
     BeeGpioInit();

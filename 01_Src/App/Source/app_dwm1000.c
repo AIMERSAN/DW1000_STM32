@@ -10,15 +10,18 @@
   ******************************************************************************
   */
 
+#include <string.h>
+
 #include "app_dwm1000.h"
 #include "bsp_DWM1000.h"
+#include "deca_sleep.h"
 #include "deca_device_api.h"
 #include "deca_regs.h"
 
 /* dwt communication configuration. */
 static dwt_config_t dwtCommConfig = 
 {
-    2,               /* Channel number. */
+    MODULE_CHANNEL,               /* Channel number. */
     DWT_PRF_64M,     /* Pulse repetition frequency. */
     DWT_PLEN_1024,   /* Preamble length. */
     DWT_PAC32,       /* Preamble acquisition chunk size. Used in RX only. */
@@ -32,8 +35,8 @@ static dwt_config_t dwtCommConfig =
 
 static uint32 statusReg = 0;        /* 存储状态寄存器的值用于断点检查 */
 static uint8  rxBuffer[RX_BUF_LEN]; /* 接收数据缓冲区 */
-static uint8  rxPolMlsg[] = {0x41, 0x88, 0, 0xCA, 0xDE, 'W', 'A', 'V', 'E', 0x21, 0, 0}; /* 测距使用帧段*/
-static uint8  txRespMsg[] = {0x41, 0x88, 0, 0xCA, 0xDE, 'V', 'E', 'W', 'A', 0x10, 0x02, 0, 0, 0, 0};
+static uint8  rxPolMlsg[]  = {0x41, 0x88, 0, 0xCA, 0xDE, 'W', 'A', 'V', 'E', 0x21, 0, 0}; /* 测距使用帧段*/
+static uint8  txRespMsg[]  = {0x41, 0x88, 0, 0xCA, 0xDE, 'V', 'E', 'W', 'A', 0x10, 0x02, 0, 0, 0, 0};
 static uint8  rxFinalMsg[] = {0x41, 0x88, 0, 0xCA, 0xDE, 'W', 'A', 'V', 'E', 0x23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 static uint64 pollRxTs;             /* 接收时间缓存变量 */
 static uint64 respTxTs;             /* 发送时间 */
@@ -56,6 +59,7 @@ static uint64 getRxTimeStampU64(void)
     return ts;
 }
 
+/* Ts - TimeStamp */
 static uint64 getTxTimeStampU64(void)
 {
     uint8_t tsTab[5];
@@ -161,13 +165,13 @@ void Dwm1000Respond(double *dis)
 					dwt_readrxdata(rxBuffer, frameLen, 0);
 				}
 				rxBuffer[ALL_MSG_SN_IDX] = 0;//清除不相关字段简化验证
-				if (memcmp(rxBuffer, rxFinalMsg, ALL_MSG_COMMON_LEN) == 0)//轮询 DS TWR发起者
+				if(memcmp(rxBuffer, rxFinalMsg, ALL_MSG_COMMON_LEN) == 0)//轮询 DS TWR发起者
 				{
 					uint32 poll_tx_ts, resp_rx_ts, final_tx_ts;
 					uint32 poll_rx_ts_32, resp_tx_ts_32, final_rx_ts_32;
 					double Ra, Rb, Da, Db;
 					int64 tof_dtu;
-					respTxTs = getRxTimeStampU64();//获取发送响应时间
+					respTxTs = getTxTimeStampU64();//获取发送响应时间
 					finalRxTs = getRxTimeStampU64();//获取最后接收时间					
 					finalMsgGetTs(&rxBuffer[FINAL_MSG_POLL_TX_TS_IDX], &poll_tx_ts);//获取最后时间戳
 					finalMsgGetTs(&rxBuffer[FINAL_MSG_RESP_RX_TS_IDX], &resp_rx_ts);

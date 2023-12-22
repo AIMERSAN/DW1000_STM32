@@ -23,7 +23,7 @@ void BeeGpioInit(void)
 
     GPIO_DeInit(beeGpioHandle.pGPIOx);
     GpioPeripheralClockConfig(beeGpioHandle.pGPIOx, ENABLE);
-    GpioConfigInit(beeGpioHandle.pGPIOx, &beeGpioHandle);
+    GpioConfigInit(beeGpioHandle.pGPIOx, beeGpioHandle);
 }
 
 void BeeClose(void)

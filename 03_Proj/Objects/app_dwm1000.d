@@ -1,4 +1,5 @@
 .\objects\app_dwm1000.o: ..\01_Src\App\Source\app_dwm1000.c
+.\objects\app_dwm1000.o: E:\Keil5\ARM\ARM_Complier_5.06u7\Bin\..\include\string.h
 .\objects\app_dwm1000.o: ..\01_Src\App\Include\app_dwm1000.h
 .\objects\app_dwm1000.o: ..\01_Src\Drv\Include\drv_Spi.h
 .\objects\app_dwm1000.o: ..\02_Lib\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
@@ -34,6 +35,7 @@
 .\objects\app_dwm1000.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\app_dwm1000.o: ..\02_Lib\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\app_dwm1000.o: ..\01_Src\BSP\Include\bsp_DWM1000.h
+.\objects\app_dwm1000.o: ..\01_Src\Deca\decaPlatform\Include\deca_sleep.h
 .\objects\app_dwm1000.o: ..\01_Src\Deca\decaDriver\Include\deca_device_api.h
 .\objects\app_dwm1000.o: ..\01_Src\Deca\decaDriver\Include\deca_regs.h
 .\objects\app_dwm1000.o: ..\01_Src\Deca\decaDriver\Include\deca_version.h

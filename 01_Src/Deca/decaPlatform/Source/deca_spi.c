@@ -18,10 +18,6 @@
 
 #include "drv_Spi.h"
 
-
-// #include "port.h"
-
-
 int writetospi_serial(SPI_TypeDef*    SPIx,
                         GPIO_TypeDef*  SPIx_CS_GPIO,
                         uint16_t       SPIx_CS_PIN,
@@ -83,8 +79,8 @@ int readfromspi_serial(SPI_TypeDef*    SPIx,
  * returns 0 for success, or -1 for error
  */
 
-
-#pragma GCC optimize ("O3")
+/* 会报warning，先注释起来 */
+// #pragma GCC optimize ("O3")
 int writetospi_serial
 (
     SPI_TypeDef*   SPIx,
@@ -141,8 +137,8 @@ int writetospi_serial
  * or returns -1 if there was an error
  */
 
-
-#pragma GCC optimize ("O3")
+/* 会报warning，先注释 */
+// #pragma GCC optimize ("O3")
 int readfromspi_serial
 (
     SPI_TypeDef*    SPIx,
@@ -163,7 +159,7 @@ int readfromspi_serial
     /* Wait for SPIx Tx buffer empty */
     //while (port_SPIx_busy_sending());
 
-    SPIx_CS_GPIO->BRR = SPIx_CS_GPIO;
+    SPIx_CS_GPIO->BRR = SPIx_CS_PIN;
 
     for(i=0; i<headerLength; i++)
     {
